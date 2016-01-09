@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: uprint
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: uprint_development
+
+test:
+  <<: *default
+  database: uprint_test
+
+production:
+  <<: *default
+  database: uprint_production
