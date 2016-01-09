@@ -55,6 +55,6 @@ rake db:setup
 Go to the ```app/``` directory and start the Rails app.
 
 ```
-cd path/to/buildex/api
+cd path/to/uprint
 rails s 
 ```
