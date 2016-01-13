@@ -27,15 +27,8 @@ $(document).ready(function() {
 	            }
        	 }
     	});
-   	
-    $('.shape').shape();
 });
 
 function flipOver() {
 	$('.shape').shape('flip over');
-	if($('#signup-login').prop('textContent') == 'Sign up'){
-		$('#signup-login').prop('textContent', 'Login');
-	}else{
-		$('#signup-login').prop('textContent', 'Sign up');
-	}
 }
