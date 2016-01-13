@@ -1,18 +1,37 @@
 @import "semantic-ui";
 
 .primary-background-solid{
-	background-color: #9CE5DE;
+	background-color: #3EACA8;
 }
 
 .accent-background-solid{
-	background-color: #F2F0F1;
+	background-color: #E5EEC1;
+}
+
+.primary-color{
+	color: #547A82	;
+}
+
+.gradient{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5eec1+6,a2d4ab+24,3eaca8+47,547a82+64,5a5050+85,5a5050+91,5a5050+93,5a5050+93 */
+background: #e5eec1; /* Old browsers */
+background: -moz-linear-gradient(top,  #e5eec1 6%, #a2d4ab 24%, #3eaca8 47%, #547a82 64%, #5a5050 85%, #5a5050 91%, #5a5050 93%, #5a5050 93%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #e5eec1 6%,#a2d4ab 24%,#3eaca8 47%,#547a82 64%,#5a5050 85%,#5a5050 91%,#5a5050 93%,#5a5050 93%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #e5eec1 6%,#a2d4ab 24%,#3eaca8 47%,#547a82 64%,#5a5050 85%,#5a5050 91%,#5a5050 93%,#5a5050 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5eec1', endColorstr='#5a5050',GradientType=0 ); /* IE6-9 */
+width: 100%;
+height: 100%;
+}
+
+.white{
+	color: #FAFAFA;
 }
 
 .top-bar{
 	position: absolute;
 	text-align: center;
 	top: 0px;
-	background-color: #F2F0F1;
+	background-color: #E5EEC1;
 	width: 100%;
 	height: 5%;
 }
