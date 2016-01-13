@@ -1,0 +1,39 @@
+@import "semantic-ui";
+
+.primary-background-solid{
+	background-color: #9CE5DE;
+}
+
+.accent-background-solid{
+	background-color: #F2F0F1;
+}
+
+.top-bar{
+	position: absolute;
+	text-align: center;
+	top: 0px;
+	background-color: #F2F0F1;
+	width: 100%;
+	height: 5%;
+}
+
+.top-text{
+	position: relative;
+	top: 25%;
+}
+
+.section{
+	text-align: center;
+}
+
+.form-padding{
+	padding: 15px 15px 15px 15px;
+}
+
+#WhatIsUPrint{
+	font-size: 3rem;
+}
+
+#WhatIsUPrintP{
+	font-size: 1.5rem;
+}
