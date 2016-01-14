@@ -1,6 +1,7 @@
 $(document).ready(function() {
-	$('#form').transition('toggle');
+	$('#bottomPage .bottomPagePart').transition('toggle');
 	$('#topPage').transition('toggle');
+	$("#UPrint").transition('toggle');
 
     	$('#fullpage').fullpage({
     		anchors: ['about', 'home'],
@@ -12,7 +13,12 @@ $(document).ready(function() {
 
 	      	//using anchorLink
 			if(anchorLink == 'home'){
-		      	$('#form').transition('fade down');
+				$('#UPrint').transition('fade down');
+		      	$('#bottomPage .bottomPagePart').transition({
+		      		animation: 'fade down',
+		      		duration: 800,
+		      		interval: 600
+		      	});
 			}else if(anchorLink == 'about'){
 				$('#topPage').transition('fade up');
 			}
@@ -23,7 +29,8 @@ $(document).ready(function() {
 
 	            //after leaving section 2
 	            if(index == 2 && direction =='up'){
-	                $('#form').transition('fade up');
+	                $('#bottomPage .bottomPagePart').transition('fade up');
+	                $('#UPrint').transition('fade up');
 	            }else if(index == 1 && direction == 'down'){
 	            	$('#topPage').transition('fade down');
 	            }

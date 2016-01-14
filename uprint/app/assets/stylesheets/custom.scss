@@ -25,18 +25,23 @@
 }
 
 .gradient{
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5eec1+6,a2d4ab+24,3eaca8+47,547a82+64,5a5050+85,5a5050+91,5a5050+93,5a5050+93 */
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5eec1+0,e5eec1+16,a2d4ab+43,3eaca8+67,3eaca8+67,547a82+88,5a5050+99 */
 background: #e5eec1; /* Old browsers */
-background: -moz-linear-gradient(top,  #e5eec1 6%, #a2d4ab 24%, #3eaca8 47%, #547a82 64%, #5a5050 85%, #5a5050 91%, #5a5050 93%, #5a5050 93%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #e5eec1 6%,#a2d4ab 24%,#3eaca8 47%,#547a82 64%,#5a5050 85%,#5a5050 91%,#5a5050 93%,#5a5050 93%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #e5eec1 6%,#a2d4ab 24%,#3eaca8 47%,#547a82 64%,#5a5050 85%,#5a5050 91%,#5a5050 93%,#5a5050 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background: -moz-linear-gradient(top,  #e5eec1 0%, #e5eec1 16%, #a2d4ab 43%, #3eaca8 67%, #3eaca8 67%, #547a82 88%, #5a5050 99%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #e5eec1 0%,#e5eec1 16%,#a2d4ab 43%,#3eaca8 67%,#3eaca8 67%,#547a82 88%,#5a5050 99%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #e5eec1 0%,#e5eec1 16%,#a2d4ab 43%,#3eaca8 67%,#3eaca8 67%,#547a82 88%,#5a5050 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5eec1', endColorstr='#5a5050',GradientType=0 ); /* IE6-9 */
+
 width: 100%;
 height: 100%;
 }
 
 .white{
-	color: #FAFAFA;
+	color: #547a82	;
+}
+
+.black{
+	color: #5A5050;
 }
 
 .top-bar{
@@ -71,4 +76,37 @@ height: 100%;
 
 #WhatIsUPrintP{
 	font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .mobile.hidden,
+    .tablet.only,
+    .small.monitor.only,
+    .large.monitor.only {
+        display: none !important;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .mobile.only,
+    .tablet.hidden,
+    .small.monitor.only,
+    .large.monitor.only {
+        display: none !important;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .mobile.only,
+    .tablet.only,
+    .small.monitor.hidden,
+    .large.monitor.only {
+        display: none !important;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .mobile.only,
+    .tablet.only,
+    .small.monitor.only,
+    .large.monitor.hidden {
+        display: none !important;
+    }
 }
