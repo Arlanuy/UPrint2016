@@ -4,6 +4,8 @@ $(document).ready(function() {
 
     	$('#fullpage').fullpage({
     		anchors: ['about', 'home'],
+    		navigation: true,
+    		navigationPosition: 'left',
 
     		afterLoad: function(anchorLink, index){
       		var loadedSection = $(this);
