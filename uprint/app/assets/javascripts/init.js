@@ -3,6 +3,8 @@ $(document).ready(function() {
 	$('#topPage').transition('toggle');
 	$("#UPrint").transition('toggle');
 
+	$('.ui.checkbox').checkbox();
+
     	$('#fullpage').fullpage({
     		anchors: ['about', 'home'],
     		navigation: true,
@@ -40,4 +42,26 @@ $(document).ready(function() {
 
 function flipOver() {
 	$('.shape').shape('flip over');
+}
+
+function signUpStudent(){
+	$('#email-label').text('UP Webmail');
+	$('#email-input').prop("placeholder", "UP Webmail");
+	$('#signupModal').prop('value', 'student');
+}
+
+function signUpShop(){
+	$('#email-label').text('Email');
+	$('#email-input').prop("placeholder", "Email");
+	$('#signupModal').prop('value', 'shop');
+}
+
+function signUp(){
+	if($('#signupModal').prop('value') == 'student'){
+		$('#studentModal').modal('show');
+	}else{
+		$('#shopModal').modal('show');
+	}
+	$("#email-input-modal").val($("#email-input").val());
+	$("#password-input-modal").val($("#password-input").val());
 }
