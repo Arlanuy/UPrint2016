@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  before_action :authenticate_shop!, except: [:create, :show, :index]
   before_action :set_shop, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -47,6 +48,8 @@ class ShopsController < ApplicationController
                                     :location,
                                     :email,
                                     :contact_number,
-                                    :pricing)
+                                    :pricing,
+                                    :password,
+                                    :password_confirmation)
     end
 end
