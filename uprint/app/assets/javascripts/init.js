@@ -59,9 +59,11 @@ function signUpShop(){
 function signUp(){
 	if($('#signupModal').prop('value') == 'student'){
 		$('#studentModal').modal('show');
+		$("#email-input-modal").val($("#email-input").val());
+		$("#password-input-modal").val($("#password-input").val());
 	}else{
 		$('#shopModal').modal('show');
 	}
-	$("#email-input-modal").val($("#email-input").val());
-	$("#password-input-modal").val($("#password-input").val());
+	$("#email-input-shop-modal").val($("#email-input").val());
+	$("#password-input-shop-modal").val($("#password-input").val());
 }
