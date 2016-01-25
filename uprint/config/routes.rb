@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'static_pages#index'
+  root 'static_pages#landing'
 
   get 'user/show' => 'static_pages#test'
   # The priority is based upon order of creation: first created -> highest priority.

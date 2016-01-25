@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  def index
+  def landing
   	render :layout => false
   end
   def test
