@@ -10,7 +10,7 @@
          font-url('nexa_free_light-webfont.svg#nexa_lightregular') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+}   
 
 .primary-background-solid{
 	background-color: #3EACA8;
@@ -117,4 +117,9 @@ body{
     background-image: url("subtle_dots_uprint.png");
     background-repeat: repeat;
 }
+
+header{
+    margin-bottom: 3.4rem;
+}
+/*User Show View*/
 

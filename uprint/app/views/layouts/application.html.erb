@@ -6,11 +6,13 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<div class="ui three item menu top fixed">
-			<a class="active item">Editorials</a>
-			<a class="item">Reviews</a>
-			<a class="item">Upcoming Events</a>
-		</div>
+		<header>
+			<div class="ui menu top fixed">
+				<div class="header item">UPrint</div>
+				<a class="item">Profile</a>
+				<a class="item">Shops</a>
+			</div>
+		</header>
 		<%= yield %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	</body>
