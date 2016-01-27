@@ -4,6 +4,7 @@ gem 'rails', '4.2.3'
 gem 'pg'
 gem 'bcrypt', '~> 3.1.7'
 gem 'turbolinks'
+gem 'devise'
 
 # Front end gems
 gem 'jquery-rails'
@@ -13,5 +14,5 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 group :development, :test do
   gem 'byebug'
   gem 'spring'
+  gem 'mailcatcher'
 end
-
