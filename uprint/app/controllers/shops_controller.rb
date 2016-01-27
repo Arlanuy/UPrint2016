@@ -17,7 +17,7 @@ class ShopsController < ApplicationController
   end
 
   def create
-    @shop = Shop.new(shop_params)
+    @shop = Shop.create(shop_params)
     if @shop.save
       redirect_to @shop, notice: 'Shop was successfully created.'
     else

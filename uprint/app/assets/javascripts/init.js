@@ -64,6 +64,6 @@ function signUp(){
 	}else{
 		$('#shopModal').modal('show');
 	}
-	$("#email-input-shop-modal").val($("#email-input").val());
-	$("#password-input-shop-modal").val($("#password-input").val());
+	$("#shop_email").val($("#email-input").val());
+	$("#shop_password").val($("#password-input").val());
 }

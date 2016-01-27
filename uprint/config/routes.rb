@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :shops
+  devise_for :shops, :controllers => { :registrations => "shops/registrations" }
+  #devise_for :shops
   resources :shops
 
   root 'static_pages#landing'

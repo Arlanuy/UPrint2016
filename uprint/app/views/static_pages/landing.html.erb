@@ -138,39 +138,7 @@
 		<div class="ui modal" id="shopModal">
 			<div class="header">Sign up as Shop</div>
 			<div class="content">
-				<form class="ui form form-padding">
-					<div class="fields">
-						<div class="six wide field">
-							<label>Shop name</label>
-							<input type="text" name="shop_name" placeholder="Shop name">
-						</div>
-						<div class="ten wide field">
-							<label>Location / Stall Number</label>
-							<input type="text" name="" placeholder="Location / Stall Number">
-						</div>
-					</div>
-					<div class="fields">
-						<div class="eight wide field">
-							<label>Email</label>
-							<input type="email" name="email" placeholder="Email" id="email-input-shop-modal">
-						</div>
-						<div class="eight wide field centered">
-							<label>Contact Number</label>
-							<input type="text" name="contact_number" placeholder="09061234567">
-						</div>
-					</div>
-					<div class="fields">
-						<div class="eight wide field">
-							<label>Password</label>
-							<input type="password" name="password" placeholder="Password" id="password-input-shop-modal">
-						</div>
-						<div class="eight wide field">
-							<label>Confirm Password</label>
-							<input type="password" name="password-confirmation" placeholder="Confirm Password">
-						</div>
-					</div>
-					<button class="ui button">Sign up</button>
-				</form>
+        <%= render "shops/form" %>
 			</div>
 		</div>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
