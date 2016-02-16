@@ -6,16 +6,27 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
+# <<<<<<< HEAD
   # config.secret_key = '875c51707133318fe0d07d71fd1d44b5dfe3c1ca2a7f11489708156c99cb4ff781991d6ef3dab30da4a73c7bded7fca0163d8313ceed3df547389677e92bbeef'
+# =======
+  # config.secret_key = '9b6944403960e4e8425b3fa428032b4269e9ff5c8cf07dcdc56332eeda0d27590188a39c5011dccbba7dd784f02a58da978d60669e1629b57c5346d3089bf2a0'
+# >>>>>>> student_sign_up
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+# <<<<<<< HEAD
+  # config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
-  config.mailer = 'ShopMailer'
+  # config.mailer = 'ShopMailer'
+# =======
+  config.mailer_sender = 'gtgutierrez@up.edu.ph'
+
+  # Configure the class responsible to send e-mails.
+  config.mailer = 'StudentMailer'
+# >>>>>>> student_sign_up
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -99,7 +110,11 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
+# <<<<<<< HEAD
   # config.pepper = '7131d29307fc3af4db60a23b2acf99b7b106a71757d390b251f00fa6df70de58431172f6936e0d2babedabcfa9a9886a71288212c2a820bfa5f35bd1aa4b299f'
+# =======
+  # config.pepper = '2030b881ae70a78a76b3264b4f655a2fbaa841600bf4a35323d987c71ce92f6c3576ede14e61a6ef82ab057c847bca46d9ccb50dd6947ab4286a673954e93a01'
+# >>>>>>> student_sign_up
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
@@ -124,7 +139,11 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
+# <<<<<<< HEAD
   config.reconfirmable = true
+# =======
+  # config.reconfirmable = false
+# >>>>>>> student_sign_up
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]

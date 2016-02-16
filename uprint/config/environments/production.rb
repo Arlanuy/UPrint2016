@@ -81,6 +81,10 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address => "127.0.0.1",
     :port    => 25,
+# <<<<<<< HEAD
     :domain  => 'localhost:3000'
+# =======
+    # :domain  => 'yourdomain.com'
+# >>>>>>> student_sign_up
   }
 end
