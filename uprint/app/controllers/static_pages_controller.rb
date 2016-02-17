@@ -6,4 +6,7 @@ class StaticPagesController < ApplicationController
   end
   def test
   end
+
+  def transactions
+  end
 end
