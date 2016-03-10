@@ -1,0 +1,99 @@
+<h1>Available Shops</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @all_shops.each do |shop| %>
+      <tr>
+        <td><%= shop.shop_name %></td>
+        <td> Queue Status: <%= shop.queue_status %></td>
+        <td><%= link_to 'Show', shop_path(shop) %></td>
+        <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
+        <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="ui grid" style="margin-left: auto; margin-right: auto">
+  <div class="four wide column">
+    <div class="ui segment">
+      <h2 class="ui header">
+      Juan Dela Cruz
+      <div class="sub header">2014-XXXXX</div>
+      </h2>
+      <div class="ui divider"></div>
+      <div class="ui list">
+        <div class="item">
+          <h5><i class="mail icon"></i>jdelacruz5@upd.edu.ph</h5>
+        </div>
+        <div class="item">
+          <h5><i class="phone icon"></i>09061234567</h5>
+        </div>
+      </div>
+    </p>
+  </div>
+</div>
+<div class="eight wide column">
+  <div class="ui segment padded">
+    <h1 class="ui header centered">Shops</h1>
+    <div class="ui divider"></div>
+    <div class="ui three stackable cards">
+
+      <% @all_shops.each do |shop| %>
+        <a href="#" class="card">
+          <div class="content">
+              <div class="header"><%= shop.shop_name %>
+                <% if shop.is_available %>
+                  <i class="tiny circle icon green"></i></div>
+                <% else %>
+                  <i class="tiny circle icon red"></i></div>
+                <% end %>
+              <div class="ui divider"></div>
+              <div class="description">Collaboratively administrate empowered markets via plug-and-play networks.</div>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="four wide column">
+  <div class="ui segment">
+    <div class="ui center aligned grid padded">
+      <h3 class="ui header">Transactions</h3>
+      <div class="ui relaxed divided list">
+        <div class="item">
+          <i class="large check circle icon"></i>
+          <div class="content">
+            <a class="header">Order #1234</a>
+            <div class="description">
+              Eng 10 Readings from <a>Shop #1234</a>. Claimed today.
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <i class="large check circle outline icon"></i>
+          <div class="content">
+            <a class="header">Order #1234</a>
+            <div class="description">
+              Eng 10 Readings from <a>Shop #1234</a>. Ready to be claimed since yesterday.
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <i class="large wait icon"></i>
+          <div class="content">
+            <a class="header">Order #1234</a>
+            <div class="description">
+              Eng 10 Readings from <a>Shop #1234</a>. Pending since January 21, 2016.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
