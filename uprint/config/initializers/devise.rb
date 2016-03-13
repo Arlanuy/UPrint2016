@@ -22,7 +22,7 @@ Devise.setup do |config|
   # Configure the class responsible to send e-mails.
   # config.mailer = 'ShopMailer'
 # =======
-  config.mailer_sender = 'gtgutierrez@up.edu.ph'
+  config.mailer_sender = ENV["GMAIL_USERNAME"]
 
   # Configure the class responsible to send e-mails.
   config.mailer = 'StudentMailer'
