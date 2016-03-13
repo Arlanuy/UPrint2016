@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :shops, :controllers => { :registrations => "shops/registrations" }
   #devise_for :shops
-  #devise_for :students
+  devise_for :students, :controllers => { :registrations => "students/registrations" }
   resources :shops
 
   root 'static_pages#landing'
