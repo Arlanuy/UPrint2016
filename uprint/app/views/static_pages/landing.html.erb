@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>UPrint</title>
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
@@ -57,9 +57,11 @@
 										<button class="ui attached bottom button in-button-shape" onclick="flipOver()">Sign up</button>
 									</div>
 								</div>
-            <% if student_signed_in? %>
-              <%= link_to "Awkward Sign Out Button", destroy_student_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
-            <% end %>
+			<% if student_signed_in? %>
+				<%= link_to "Awkward Student Sign Out Button", destroy_student_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
+			<% elsif shop_signed_in? %>
+				<%= link_to "Awkward Shop Sign Out Button", destroy_shop_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
+			<% end %>
 							</div>
 						</div>
 					</div>
@@ -99,7 +101,7 @@
 		<div class="ui modal small" id="studentModal">
 			<div class="header">Sign up as Student</div>
 			<div class="content">
-				<form class="ui form form-padding">
+				<!--form class="ui form form-padding">
 					<div class="fields">
 						<div class="five wide field">
 							<label>First name</label>
@@ -135,13 +137,14 @@
 						</div>
 					</div>
 					<button class="ui button">Sign up</button>
-				</form>
+				</form-->
+				<%= render "students/registrations/new" %>
 			</div>
 		</div>
 		<div class="ui modal" id="shopModal">
 			<div class="header">Sign up as Shop</div>
 			<div class="content">
-        <%= render "shops/registrations/new" %>
+				<%= render "shops/registrations/new" %>
 			</div>
 		</div>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
