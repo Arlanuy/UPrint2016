@@ -57,6 +57,9 @@
 										<button class="ui attached bottom button in-button-shape" onclick="flipOver()">Sign up</button>
 									</div>
 								</div>
+            <% if student_signed_in? %>
+              <%= link_to "Awkward Sign Out Button", destroy_student_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
+            <% end %>
 							</div>
 						</div>
 					</div>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :shops, :controllers => { :registrations => "shops/registrations" }
   #devise_for :shops
+  devise_for :students, :controllers => { :registrations => "students/registrations" }
   resources :shops
 
   root 'static_pages#landing'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
