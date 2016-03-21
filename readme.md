@@ -1,5 +1,5 @@
 # UPrint 2016
-## A “grab-­a-­printer” service for students and small scale printing businesses.
+## UPrint is a cloud printing service wherein you can send files online so that an available printing shop can print your files.
 
 ### Database
 
