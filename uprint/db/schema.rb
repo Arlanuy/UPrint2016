@@ -58,8 +58,6 @@ ActiveRecord::Schema.define(version: 20160302073230) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "queue_status",           default: 0,  null: false
-    t.boolean  "is_available"
   end
 
   add_index "shops", ["confirmation_token"], name: "index_shops_on_confirmation_token", unique: true, using: :btree

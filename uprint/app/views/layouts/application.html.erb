@@ -6,11 +6,13 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<header>
-			<div class="ui menu top fixed">
-				<div class="header item">UPrint</div>
-			</div>
-		</header>
+		<% unless controller_name == "static_pages" and action_name == "landing" %>
+			<header>
+				<div class="ui menu top fixed">
+					<div class="header item">UPrint</div>
+				</div>
+			</header>
+		<% end %>
 		<%= yield %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	</body>

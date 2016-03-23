@@ -1,152 +1,141 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>UPrint</title>
-		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-		<%= csrf_meta_tags %>
-	</head>
-	<body>
-		<div id="fullpage">
-			<div class="section accent-background-solid">
-				<div class="ui container" id="topPage">
-					<h1 class="ui header" id="WhatIsUPrint"> What is UPrint? </h1>
-					<p id="WhatIsUPrintP">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
-					<p id="WhatIsUPrintP">Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.</p>
-				</div>
-			</div>
-			<div class="section active gradient">
-				<div class="ui grid" id="bottomPage">
-					<div class="top-bar"><h5 class="top-text"><a href="#about" class="white" id="UPrint">What is UPrint?</a></h5></div>
-					<div class="sixteen wide column bottomPagePart">
-						<div class="ui shape">
-							<div class="sides">
-								<div class="active side">
-									<div class="ui card">
-										<div class="ui buttons in-button-shape top attached">
-											<button class="ui button in-button-shape" onclick="signUpStudent()">Student</button>
-											<div class="or"></div>
-											<button class="ui button in-button-shape" onclick="signUpShop()">Shop</button>
-										</div>
-										<div class="ui form form-padding">
-											<div class="field">
-												<label id="email-label">UP Webmail</label>
-												<input type="email" name="email" placeholder="UP Webmail" id="email-input">
-											</div>
-											<div class="field">
-												<label>Password</label>
-												<input type="password" name="password" placeholder="Password" id='password-input'>
-											</div>
-											<button class="ui button in-button-shape" id='signupModal' value='student' onclick="signUp()">Sign up</button>
-										</div>
-										<div class="ui bottom attached button in-button-shape" onclick="flipOver()">Login</div>
-									</div>
+<div id="fullpage">
+	<div class="section accent-background-solid">
+		<div class="ui container" id="topPage">
+			<h1 class="ui header" id="WhatIsUPrint"> What is UPrint? </h1>
+			<p id="WhatIsUPrintP">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
+			<p id="WhatIsUPrintP">Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.</p>
+		</div>
+	</div>
+	<div class="section active gradient">
+		<div class="ui grid" id="bottomPage">
+			<div class="top-bar"><h5 class="top-text"><a href="#about" class="white" id="UPrint">What is UPrint?</a></h5></div>
+			<div class="sixteen wide column bottomPagePart">
+				<div class="ui shape">
+					<div class="sides">
+						<div class="active side">
+							<div class="ui card">
+								<div class="ui buttons in-button-shape top attached">
+									<button class="ui button in-button-shape" onclick="signUpStudent()">Student</button>
+									<div class="or"></div>
+									<button class="ui button in-button-shape" onclick="signUpShop()">Shop</button>
 								</div>
-								<div class="side">
-									<div class="ui card">
-										<form class="ui form form-padding">
-											<div class="field">
-												<label>Email</label>
-												<input type="email" name="email" placeholder="Email">
-											</div>
-											<div class="field">
-												<label>Password</label>
-												<input type="password" name="password" placeholder="Password">
-											</div>
-											<button class="ui button" type="submit">Login</button>
-										</form>
-										<button class="ui attached bottom button in-button-shape" onclick="flipOver()">Sign up</button>
+								<div class="ui form form-padding">
+									<div class="field">
+										<label id="email-label">UP Webmail</label>
+										<input type="email" name="email" placeholder="UP Webmail" id="email-input">
 									</div>
+									<div class="field">
+										<label>Password</label>
+										<input type="password" name="password" placeholder="Password" id='password-input'>
+									</div>
+									<button class="ui button in-button-shape" id='signupModal' value='student' onclick="signUp()">Sign up</button>
 								</div>
-			<% if student_signed_in? %>
-				<%= link_to "Awkward Student Sign Out Button", destroy_student_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
-			<% elsif shop_signed_in? %>
-				<%= link_to "Awkward Shop Sign Out Button", destroy_shop_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
-			<% end %>
+								<div class="ui bottom attached button in-button-shape" onclick="flipOver()">Login</div>
 							</div>
 						</div>
+						<div class="side">
+							<div class="ui card">
+								<form class="ui form form-padding">
+									<div class="field">
+										<label>Email</label>
+										<input type="email" name="email" placeholder="Email">
+									</div>
+									<div class="field">
+										<label>Password</label>
+										<input type="password" name="password" placeholder="Password">
+									</div>
+									<button class="ui button" type="submit">Login</button>
+								</form>
+								<button class="ui attached bottom button in-button-shape" onclick="flipOver()">Sign up</button>
+							</div>
+						</div>
+	<% if student_signed_in? %>
+		<%= link_to "Awkward Student Sign Out Button", destroy_student_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
+	<% elsif shop_signed_in? %>
+		<%= link_to "Awkward Shop Sign Out Button", destroy_shop_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
+	<% end %>
 					</div>
-					<div class="row centered stackable mobile hidden bottomPagePart">
-						<div class="seven wide column">
-							<div class="ui statistics tiny">
-								<div class="ui statistic tiny inverted ">
-									<div class="value">
-										5,550
-									</div>
-									<div class="label">
-										Students Registered
-									</div>
-								</div>
-								<div class="ui statistic tiny inverted">
-									<div class="value">
-										12,515
-									</div>
-									<div class="label">
-										Transactions Completed
-									</div>
-								</div>
-								<div class="ui statistic tiny inverted">
-									<div class="value">
-										25
-									</div>
-									<div class="label">
-										Shops Registered
-									</div>
-								</div>
+				</div>
+			</div>
+			<div class="row centered stackable mobile hidden bottomPagePart">
+				<div class="seven wide column">
+					<div class="ui statistics tiny">
+						<div class="ui statistic tiny inverted ">
+							<div class="value">
+								5,550
+							</div>
+							<div class="label">
+								Students Registered
+							</div>
+						</div>
+						<div class="ui statistic tiny inverted">
+							<div class="value">
+								12,515
+							</div>
+							<div class="label">
+								Transactions Completed
+							</div>
+						</div>
+						<div class="ui statistic tiny inverted">
+							<div class="value">
+								25
+							</div>
+							<div class="label">
+								Shops Registered
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="ui modal small" id="studentModal">
-			<div class="header">Sign up as Student</div>
-			<div class="content">
-				<!--form class="ui form form-padding">
-					<div class="fields">
-						<div class="five wide field">
-							<label>First name</label>
-							<input type="text" name="first_name" placeholder="Juan">
-						</div>
-						<div class="six wide field">
-							<label>Last Name</label>
-							<input type="text" name="last_name" placeholder="Dela Cruz">
-						</div>
-						<div class="five wide field">
-							<label>Student Number</label>
-							<input type="text" name="student_number" placeholder="201512345">
-						</div>
-					</div>
-					<div class="fields">
-						<div class="eight wide field">
-							<label>UP Webmail</label>
-							<input type="email" name="email" placeholder="UP Webmail" id="email-input-modal">
-						</div>
-						<div class="eight wide field centered">
-							<label>Contact Number</label>
-							<input type="text" name="contact_number" placeholder="09061234567">
-						</div>
-					</div>
-					<div class="fields">
-						<div class="eight wide field">
-							<label>Password</label>
-							<input type="password" name="password" placeholder="Password" id="password-input-modal">
-						</div>
-						<div class="eight wide field">
-							<label>Confirm Password</label>
-							<input type="password" name="password-confirmation" placeholder="Confirm Password">
-						</div>
-					</div>
-					<button class="ui button">Sign up</button>
-				</form-->
-				<%= render "students/registrations/new" %>
+	</div>
+</div>
+<div class="ui modal small" id="studentModal">
+	<div class="header">Sign up as Student</div>
+	<div class="content">
+		<!--form class="ui form form-padding">
+			<div class="fields">
+				<div class="five wide field">
+					<label>First name</label>
+					<input type="text" name="first_name" placeholder="Juan">
+				</div>
+				<div class="six wide field">
+					<label>Last Name</label>
+					<input type="text" name="last_name" placeholder="Dela Cruz">
+				</div>
+				<div class="five wide field">
+					<label>Student Number</label>
+					<input type="text" name="student_number" placeholder="201512345">
+				</div>
 			</div>
-		</div>
-		<div class="ui modal" id="shopModal">
-			<div class="header">Sign up as Shop</div>
-			<div class="content">
-				<%= render "shops/registrations/new" %>
+			<div class="fields">
+				<div class="eight wide field">
+					<label>UP Webmail</label>
+					<input type="email" name="email" placeholder="UP Webmail" id="email-input-modal">
+				</div>
+				<div class="eight wide field centered">
+					<label>Contact Number</label>
+					<input type="text" name="contact_number" placeholder="09061234567">
+				</div>
 			</div>
-		</div>
-		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	</body>
-</html>
+			<div class="fields">
+				<div class="eight wide field">
+					<label>Password</label>
+					<input type="password" name="password" placeholder="Password" id="password-input-modal">
+				</div>
+				<div class="eight wide field">
+					<label>Confirm Password</label>
+					<input type="password" name="password-confirmation" placeholder="Confirm Password">
+				</div>
+			</div>
+			<button class="ui button">Sign up</button>
+		</form-->
+		<%= render "students/registrations/new" %>
+	</div>
+</div>
+<div class="ui modal" id="shopModal">
+	<div class="header">Sign up as Shop</div>
+	<div class="content">
+		<%= render "shops/registrations/new" %>
+	</div>
+</div>
