@@ -30,7 +30,6 @@
 									</div>
 									<button class="ui button in-button-shape" id='signupModal' value='student' onclick="signUp()">Sign up</button>
 								</div>
-								<div class="ui bottom attached button in-button-shape" onclick="flipOver()">Login</div>
 							</div>
 						</div>
 						<div class="side">
@@ -46,7 +45,6 @@
 									</div>
 									<button class="ui button" type="submit">Login</button>
 								</form>
-								<button class="ui attached bottom button in-button-shape" onclick="flipOver()">Sign up</button>
 							</div>
 						</div>
 	<% if student_signed_in? %>
@@ -55,6 +53,9 @@
 		<%= link_to "Awkward Shop Sign Out Button", destroy_shop_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
 	<% end %>
 					</div>
+				</div>
+				<div class="sixteen wide column" style="margin-top: 1rem;">
+					<button class="ui button in-button-shape" id="flip" onclick="flipOver()">Login</button>
 				</div>
 			</div>
 			<div class="row centered stackable mobile hidden bottomPagePart">

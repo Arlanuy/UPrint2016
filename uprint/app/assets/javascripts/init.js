@@ -42,6 +42,8 @@ $(document).ready(function() {
 
 function flipOver() {
 	$('.shape').shape('flip over');
+	if($('#flip').html() == 'Login') $('#flip').html('Signup');
+	else $('#flip').html('Login');
 }
 
 function signUpStudent(){
