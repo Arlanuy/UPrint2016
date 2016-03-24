@@ -19,6 +19,12 @@ class StaticPagesController < ApplicationController
   	end
   end
 
+  def shop_views
+  end
+
+  def shop_dashboard
+  end
+
   def test
   end
 

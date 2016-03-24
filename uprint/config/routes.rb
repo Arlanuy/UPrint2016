@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root 'static_pages#landing'
 
   get 'shops' => 'shops#index'
+  get 'dashboard' => 'static_pages#shop_dashboard'
+  get 'views' => 'static_pages#shop_views'
   get 'user/transactions' => 'static_pages#transactions'
   get 'available' => 'shops#available'
 
