@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#landing'
 
-  get 'user/show' => 'static_pages#test'
+  get 'shops' => 'shops#index'
   get 'user/transactions' => 'static_pages#transactions'
   get 'available' => 'shops#available'
 
