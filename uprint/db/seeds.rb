@@ -8,13 +8,17 @@ students = [
 ]
 
 shops.each do |shop|
-  s = Shop.create(shop)
-  s.save
-  s.confirm
+  if Shop.find_by_email(shop[:email]).nil?
+    s = Shop.create(shop)
+    s.save
+    s.confirm
+  end
 end
 
 students.each do |student|
-  s = Student.create(student)
-  s.save
-  s.confirm
+  if Student.find_by_email(student[:email]).nil?
+    s = Student.create(student)
+    s.save
+    s.confirm
+  end
 end
