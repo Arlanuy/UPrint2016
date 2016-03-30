@@ -50,6 +50,8 @@ bundle install
 rake db:setup
 ```
 
+There will be a few ready-to-use accounts. Check out uprint/db/seeds.rb for the sign-in credentials.
+
 ## Starting the App
 
 Go to the ```app/``` directory and start the Rails app.
