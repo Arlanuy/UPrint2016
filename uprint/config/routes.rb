@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get 'dashboard' => 'static_pages#shop_dashboard'
   get 'views' => 'static_pages#shop_views'
   get 'user/transactions' => 'static_pages#transactions'
-  get 'available' => 'shops#available'
+  get 'shops/available/show' => 'shops#available'
+  get 'students/available/show' => 'students#available'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

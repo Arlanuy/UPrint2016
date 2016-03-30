@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
-  #before_action :authenticate_shop!, except: [:create, :show, :index]
-  #before_action :set_shop, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_shop!, except: [:create, :show, :index]
+  before_action :set_shop, only: [:show, :edit, :update, :destroy]
 
   def index
     @shops = Shop.order(:shop_name)
@@ -8,12 +8,6 @@ class ShopsController < ApplicationController
 
   def show
   end
-
-  def available
-    @all_shops = Shop.order(:shop_name)
-   
-  end
-  helper_method :available
 
   def new
     @shop = Shop.new
@@ -43,6 +37,11 @@ class ShopsController < ApplicationController
     @shop.destroy
     redirect_to shops_url, notice: 'Shop was successfully destroyed.'
   end
+
+  def available
+    @all_shops = Shop.order(:shop_name)
+  end
+  helper_method :available
 
   private
     def set_shop
