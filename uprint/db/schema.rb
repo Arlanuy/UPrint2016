@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302073230) do
+ActiveRecord::Schema.define(version: 20160403073915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20160302073230) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "queue_status",           default: 0,  null: false
+    t.boolean  "is_available"
   end
 
   add_index "shops", ["confirmation_token"], name: "index_shops_on_confirmation_token", unique: true, using: :btree
