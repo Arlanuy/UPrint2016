@@ -1,6 +1,56 @@
+<!--
 <h1>Editing Shop</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
 
-<%= link_to 'Show', @shop %> |
-<%= link_to 'Back', shops_path %>
+<%#= link_to 'Show', @shop %> |
+<%#= link_to 'Back', shops_path %>
+-->
+<div class="ui secondary pointing menu" style = "padding-left:60px; padding-right: 120px;">
+        <a class="active item">
+          Home
+        </a>
+        <a class="item">
+          Shops
+        </a>
+        <a class="item">
+          Files
+        </a>
+        <div class="right menu">
+          <a class="ui item">
+            Logout       <i class="sign out icon"></i>
+          </a>
+        </div>
+</div>
+
+<div class = " " style="margin: 0 auto;">
+    <div class="ui green raised segment container">
+        <div class = "ui form">
+            <h1 class = "">Shop Settings</h1>
+
+            <div class = "field" >
+                <label> Name </label>
+                <input name = "field" placeholder = "Shop Name">
+                </br>
+                </br>
+                <label> Address</label>
+                <input name = "field" placeholder = "Address">
+                </br>
+                </br>
+                <label> Contact Number</label>
+                <input name = "field" placeholder = "0917-696-9696">
+                </br>
+                </br>
+                <label> Email </label>
+                <input name = "field" placeholder = "shop@shop.com">
+                </br>
+                </br>
+                <label> Some sex</label>
+                <input name = "field" placeholder = "Sex 69">
+                </br>
+                </br>
+                <button class="ui green button " style = ""> Save Changes </button>
+            </div>
+        </div>
+    </div>
+</div>
