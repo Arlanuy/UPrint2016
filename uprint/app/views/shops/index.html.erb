@@ -29,7 +29,7 @@
   <div class="four wide column">
     <div class="ui segment">
       <h2 class="ui header">
-      <%= current_student.name %>
+      <%= link_to(current_student.name, current_student) %>
       <div class="sub header"><%= current_student.student_number %></div>
       </h2>
       <div class="ui divider"></div>
@@ -41,7 +41,6 @@
           <h5><i class="phone icon"></i><%= current_student.contact_number %></h5>
         </div>
       </div>
-    </p>
   </div>
 </div>
 <div class="eight wide column">
@@ -50,13 +49,13 @@
     <div class="ui divider"></div>
     <div class="ui three stackable cards">
       <% @shops.each do |shop| %>
-        <a href="#" class="card">
+        <%= link_to(shop, html_options={:class => "card"}) do %>
           <div class="content">
             <div class="header"><%= shop.shop_name %> <i class="tiny circle icon red"></i></div>
             <div class="ui divider"></div>
             <div class="description">Located at: <%= shop.location %></div>
           </div>
-        </a>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -64,7 +63,8 @@
 <div class="four wide column">
   <div class="ui segment">
     <div class="ui center aligned grid padded">
-      <h3 class="ui header">Transactions</h3>
+      <!--h3 class="ui header">Transactions</h3-->
+      <h3><%= link_to("Transactions", {:controller => "transactions", :action => "index", :id => current_student.id}, html_options={:class => "ui header"}) %></h3>
       <div class="ui relaxed divided list">
         <div class="item">
           <i class="large check circle icon"></i>
@@ -96,3 +96,5 @@
       </div>
     </div>
   </div>
+</div>
+</div>

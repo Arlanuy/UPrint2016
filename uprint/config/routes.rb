@@ -13,13 +13,16 @@ Rails.application.routes.draw do
   get 'user/transactions' => 'static_pages#transactions'
   get 'shops/available/show' => 'shops#available'
   get 'students/available/show' => 'students#available'
+  get 'students/:id/transactions' => 'transactions#index', as: :transactions
+  get 'students/:id' => 'students#show', as: :student
+  get 'students/:id/edit' => 'students#edit', as: :edit_student
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
