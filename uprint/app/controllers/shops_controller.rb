@@ -40,6 +40,7 @@ class ShopsController < ApplicationController
 
   def available
     @all_shops = Shop.order(:shop_name)
+    @transactions = current_shop.transactions
   end
   helper_method :available
 

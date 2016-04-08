@@ -19,13 +19,16 @@
     <% end %>
   </tbody>
 </table>
+<p>
+  Transactions: <%= current_shop.transactions.count %>
+</p>
 
 <div class="ui grid" style="margin-left: auto; margin-right: auto">
   <div class="four wide column">
     <div class="ui segment">
       <h2 class="ui header">
       <%= current_shop.shop_name %>
-      <div class="sub header">2014-XXXXX</div>
+      <div class="sub header"><%= current_shop.location %></div>
       </h2>
       <div class="ui divider"></div>
       <div class="ui list">
@@ -67,6 +70,17 @@
     <div class="ui center aligned grid padded">
       <h3 class="ui header">Transactions</h3>
       <div class="ui relaxed divided list">
+        <% @transactions.each do |t| %>
+        <div class="item">
+          <i class="large check circle icon"></i>
+          <div class="content">
+            <a class="header">Order #1234</a>
+            <div class="description">
+              Eng 10 Readings from <a>Shop #1234</a>. Claimed today.
+            </div>
+          </div>
+        </div>
+        <% end %>
         <div class="item">
           <i class="large check circle icon"></i>
           <div class="content">

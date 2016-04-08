@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'transactions/crecreate'
+
+  get 'transactions/destroy'
+
   devise_for :shops, :controllers => { :registrations => "shops/registrations" }
   #devise_for :shops
   devise_for :students, :controllers => { :registrations => "students/registrations" }
