@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop Dashboard</title>
+    <script language="javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/dist/semantic.min.css">
+    <script type='text/javascript' src="Semantic-UI-CSS-master/semantic.min.js"></script>
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+        $('.ui.visible.sidebar').sidebar('toggle');
+    });
+
+</script>
+
+
+    <style>
+
+        ul li  {
+          margin: 0px 0px 0px 0px;
+        }
+
+        p{
+          margin: 0px 0px 0px 0px;
+        }
+
+        #info {
+          background-color:;
+        }
+
+        #segment-header {
+
+
+        }
+
+        #info {
+
+        }
+
+        .question {
+
+        }
+
+        .answer {
+
+        }
+        #question {
+          padding-right: 10px;
+        }
+
+        #outer
+        {
+            width:100%;
+            text-align: center;
+        }
+        #inner
+        {
+            display: inline-block;
+        }
+
+
+
+    </style>
+
+</head>
+
+<body style = "padding-bottom: 300px;">
+  <div class="ui visible sidebar">
+    <ul>1</ul>
+    <ul>2</ul>
+    <ul>3</ul>
+  </div>
+  <div class = "pusher">
+    <div class="ui secondary pointing menu" style = "padding-left:60px; padding-right: 120px;">
+      <a class="active item">
+        Home
+      </a>
+      <a class="item">
+        Shops
+      </a>
+      <a class="item">
+        Files
+      </a>
+      <div class="right menu">
+        <a class="ui item">
+          Logout       <i class="sign out icon"></i>
+        </a>
+      </div>
+    </div>
+
+
+    <div class = "ui four column grid container">
+
+      <div class="column">
+        <div class="ui raised segment">
+          <h2 class="ui header">
+          <%= link_to(current_shop.shop_name, edit_shop_path(current_shop)) %>
+          <div class="sub header"><%= current_shop.location %></div>
+          </h2>
+          <div class="ui divider"></div>
+          <div class="ui list">
+            <div class="item">
+              <h5><i class="mail icon"></i><%= current_shop.email %></h5>
+            </div>
+            <div class="item">
+              <h5><i class="phone icon"></i><%= current_shop.contact_number %></h5>
+            </div>
+          </div>
+      	</div>
+      </div>
+
+      <div class="column">
+        <div class="ui yellow raised segment" style = "background-color: ;">
+          <h1>Pending</h1>
+          <div class="ui segments ">
+
+            <div class = "ui segment padded ">
+
+              <p class="transaction number">Transaction Number: <strong>7</strong> </p>
+              <p class="username">Username: <strong>Deeznuts69</strong></p>
+              <p class="contact num">Contact number: <strong>0917-696-6969</strong></p>
+              <p class="num_pages">Number of Pages: <strong>2</strong></p>
+              <p class="paper_size">Paper Size: <strong>A4</strong></p>
+              <p class="colored">Color: <strong>Black and White</strong></p>
+              </br>
+              <p class="additional"><strong>Additional Specifications:</strong></p>
+
+              <ul class= "">Please bla bla bla bla bla bla bla bla bla bla bla bla bla  bla bla bla bla</ul>
+
+            </div>
+            <div class="ui segment">
+              <div id="outer">
+
+                <button id = "inner"class=" ui blue  button active " style = ""> Download </button>
+                <button id="inner" class=" ui red button active ">Cancel </button>
+                <button id="inner" class=" ui green button active ">Printed </button>
+              </div>
+            </div>
+          </div>
+
+          <div class = "ui segments">
+            <div class="ui segment">
+              <p class="transaction number">Transaction Number: <strong>8</strong> </p>
+              <p class="username">Username: <strong>Adele69</strong></p>
+              <p class="contact num">Contact number: <strong>0917-696-6969</strong></p>
+              <p class="num_pages">Number of Pages: <strong>2</strong></p>
+              <p class="paper_size">Paper Size: <strong>A4</strong></p>
+              <p class="colored">Color: <strong>Colored</strong></p>
+              </br>
+              <p class="additional"><strong>Additional Specifications:</strong></p>
+
+              <ul class= "">Please bla bla bla bla bla bla bla bla bla bla bla bla bla  bla bla bla bla</ul>
+            </div>
+            <div class="ui segment">
+              <div id="outer">
+                <button id = "inner"class=" ui blue  button active " style = ""> Download </i></button>
+                <button id="inner" class=" ui red button active ">Cancel </i></button>
+                <button id="inner" class=" ui green button active ">Printed </i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui segments">
+            <div class = "ui segment">
+              <p class="transaction number">Transaction Number: <strong>9</strong> </p>
+              <p class="username">Username: <strong>GeorgeBush69</strong></p>
+              <p class="contact num">Contact number: <strong>0917-696-6969</strong></p>
+              <p class="num_pages">Number of Pages: <strong>2</strong></p>
+              <p class="paper_size">Paper Size: <strong>Long</strong></p>
+              <p class="colored">Color: <strong>Grayscale</strong></p>
+              </br>
+              <p class="additional"><strong>Additional Specifications:</strong></p>
+
+              <ul class= "">Please bla bla bla bla bla bla bla bla bla bla bla bla bla  bla bla bla bla</ul>
+            </div>
+            <div class="ui segment">
+              <div id="outer">
+
+                <button id = "inner"class=" ui blue  button active " style = ""> Download </i></button>
+                <button id="inner" class=" ui red button active ">Cancel </i></button>
+                <button id="inner" class=" ui green button active ">Printed </i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </br>
+
+
+      <div class="column">
+        <div class="ui blue raised segment">
+          <h1>Printed Unpaid</h1>
+          <div class="ui segments ">
+            <div class = "ui segment " style = "padding-left:12px;">
+
+              <p class="transaction number">Transaction Number: <strong>4</strong> </p>
+              <p class="username">Username: <strong>Deeznuts69</strong></p>
+              <p class="contact num">Contact number: <strong>0917-696-6969</strong></p>
+              <p class="num_pages">Number of Pages: <strong>2</strong></p>
+              <p class="paper_size">Paper Size: <strong>A4</strong></p>
+              <p class="colored">Color: <strong>Black and White</strong></p>
+              </br>
+              <p class="additional"><strong>Additional Specifications:</strong></p>
+
+              <ul class= "">Please bla bla bla bla bla bla bla bla bla bla bla bla bla  bla bla bla bla</ul>
+
+            </div>
+            <div class="ui segment">
+              <div id="outer">
+                <button id="outer" class=" ui green button active ">Paid</button>
+              </div>
+            </div>
+          </div>
+
+          <div class = "ui segments">
+            <div class="ui segment">
+              <p class="transaction number">Transaction Number: <strong>5</strong> </p>
+              <p class="username">Username: <strong>Adele69</strong></p>
+              <p class="contact num">Contact number: <strong>0917-696-6969</strong></p>
+              <p class="num_pages">Number of Pages: <strong>2</strong></p>
+              <p class="paper_size">Paper Size: <strong>A4</strong></p>
+              <p class="colored">Color: <strong>Colored</strong></p>
+              </br>
+              <p class="additional"><strong>Additional Specifications:</strong></p>
+
+              <ul class= "">Please bla bla bla bla bla bla bla bla bla bla bla bla bla  bla bla bla bla</ul>
+            </div>
+            <div class="ui segment">
+              <div id="outer">
+                <button id="outer" class=" ui green button active ">Paid</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui segments">
+            <div class = "ui segment">
+              <p class="transaction number">Transaction Number: <strong>6</strong> </p>
+              <p class="username">Username: <strong>GeorgeBush69</strong></p>
+              <p class="contact num">Contact number: <strong>0917-696-6969</strong></p>
+              <p class="num_pages">Number of Pages: <strong>2</strong></p>
+              <p class="paper_size">Paper Size: <strong>Long</strong></p>
+              <p class="colored">Color: <strong>Grayscale</strong></p>
+              </br>
+              <p class="additional"><strong>Additional Specifications:</strong></p>
+
+              <ul class= "">Please bla bla bla bla bla bla bla bla bla bla bla bla bla  bla bla bla bla</ul>
+            </div>
+            <div class="ui segment">
+              <div id="outer">
+                <button id="outer" class=" ui green button active ">Paid</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </br>
+
+  <!--            <div>
+                <div id="googleMap" style="width:300px;height:245px;"></div>
+            </div> -->
+      <div class="column">
+        <div class="ui green raised segment">
+          <h1>Printed Paid</h1>
+          <div class="ui segments ">
+            <div class = "ui segment " style = "padding-left:12px;">
+
+              <p class="transaction number">Transaction Number: <strong>1</strong> </p>
+              <p class="username">Username: <strong>Deeznuts69</strong></p>
+              <p class="contact num">Contact number: <strong>0917-696-6969</strong></p>
+              <p class="num_pages">Number of Pages: <strong>2</strong></p>
+              <p class="paper_size">Paper Size: <strong>A4</strong></p>
+              <p class="colored">Color: <strong>Black and White</strong></p>
+              </br>
+              <p class="additional"><strong>Additional Specifications:</strong></p>
+
+              <ul class= "">Please bla bla bla bla bla bla bla bla bla bla bla bla bla  bla bla bla bla</ul>
+
+            </div>
+            <div class="ui segment">
+              <div id="outer">
+                <button id="outer" class=" ui blue button active ">Remove</button>
+              </div>
+            </div>
+          </div>
+
+          <div class = "ui segments">
+            <div class="ui segment">
+              <p class="transaction number">Transaction Number: <strong>2</strong> </p>
+              <p class="username">Username: <strong>Adele69</strong></p>
+              <p class="contact num">Contact number: <strong>0917-696-6969</strong></p>
+              <p class="num_pages">Number of Pages: <strong>2</strong></p>
+              <p class="paper_size">Paper Size: <strong>A4</strong></p>
+              <p class="colored">Color: <strong>Colored</strong></p>
+              </br>
+              <p class="additional"><strong>Additional Specifications:</strong></p>
+
+              <ul class= "">Please bla bla bla bla bla bla bla bla bla bla bla bla bla  bla bla bla bla</ul>
+            </div>
+            <div class="ui segment">
+              <div id="outer">
+                <button id="outer" class=" ui blue button active ">Remove</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui segments">
+            <div class = "ui segment">
+              <p class="transaction number">Transaction Number: <strong>3</strong> </p>
+              <p class="username">Username: <strong>GeorgeBush69</strong></p>
+              <p class="contact num">Contact number: <strong>0917-696-6969</strong></p>
+              <p class="num_pages">Number of Pages: <strong>2</strong></p>
+              <p class="paper_size">Paper Size: <strong>Long</strong></p>
+              <p class="colored">Color: <strong>Grayscale</strong></p>
+              </br>
+              <p class="additional"><strong>Additional Specifications:</strong></p>
+
+              <ul class= "">Please bla bla bla bla bla bla bla bla bla bla bla bla bla  bla bla bla bla</ul>
+            </div>
+            <div class="ui segment">
+              <div id="outer">
+                <button id="outer" class=" ui blue button active ">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </br>
+  </div>
+</body>
+
+</html>
