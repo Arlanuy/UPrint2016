@@ -149,10 +149,10 @@
       <div  class ="ui segment">
         <h1>Order Form</h1>
       </div>
-      <div class="ui teal segment fluid form" id = "form">
+      <%= form_for(@transaction, url: create_transaction_path(@shop.id, @transaction), html: { class: 'ui teal segment fluid form', id: 'form'}) do |f| %>
         <div class = "field">
-            <label>Number of Copies</label>
-            <input placeholder="Number of Copies" type="text">
+          <label>Number of Copies</label>
+          <input placeholder="Number of Copies" type="text">
         </div>
 
         <div class = "field" >
@@ -160,20 +160,20 @@
           <div class="inline fields">
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="frequency" checked="checked">
-                <label>A4</label>
+                <%= f.radio_button :paper_size, 'A4', :checked => true %>
+                <%= f.label :paper_size, 'A4', :value => 'A4' %>
               </div>
             </div>
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="frequency">
-                <label>Short Bond</label>
+                <%= f.radio_button :paper_size, 'Short Bond' %>
+                <%= f.label :paper_size, 'Short Bond', :value => 'Short Bond' %>
               </div>
             </div>
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="frequency">
-                <label>Long Bond</label>
+                <%= f.radio_button :paper_size, 'Long Bond' %>
+                <%= f.label :paper_size, 'Long Bond', :value => 'Long Bond' %>
               </div>
             </div>
           </div>
@@ -184,20 +184,20 @@
           <div class="inline fields">
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="frequency" checked="checked">
-                <label>Colored</label>
+                <%= f.radio_button :color_settings, 'Colored', :checked => true %>
+                <%= f.label :color_settings, 'Colored', :value => 'Colored' %>
               </div>
             </div>
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="frequency">
-                <label>Black and White</label>
+                <%= f.radio_button :color_settings, 'Black and White' %>
+                <%= f.label :color_settings, 'Black and White', :value => 'Black and White' %>
               </div>
             </div>
             <div class="field">
               <div class="ui radio checkbox">
-                <input type="radio" name="frequency">
-                <label>Gray Scale</label>
+                <%= f.radio_button :color_settings, 'Gray Scale' %>
+                <%= f.label :color_settings, 'Gray Scale', :value => 'Gray Scale' %>
               </div>
             </div>
           </div>
@@ -205,14 +205,20 @@
 
         <div class="field">
           <label>Additional Specifications</label>
-          <textarea rows="4" placeholder = "shit"></textarea>
+          <%= f.text_area(:additional_specs, :rows => 4, :placeholder => "shit") %>
         </div>
 
         </br>
 
-        <button class="ui inverted blue button active centered" style = ""> Upload File <i class="upload icon"></i></button>
+        <div class="field">
+          <label for="file" class="ui inverted blue button active centered" style = ""> Upload File <i class="upload icon"></i></label>
+          <input type="file" id="file" style="display:none">
+        </div>
         </br>
-      </div>
+        <div class="field">
+          <%= f.submit %>
+        </div>
+      <% end %>
     </div>
   </div>
 </body>

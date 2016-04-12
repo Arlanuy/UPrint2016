@@ -10,5 +10,5 @@ class Shop < ActiveRecord::Base
   validates :location, presence: true
   validates :contact_number, presence: true, numericality: { only_integer: true }
 
-
+  has_many :transactions
 end

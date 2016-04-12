@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'shop/:id/transactions/:transaction_id' => 'transactions#show', as: :transaction
   get 'shop/:id/transactions/:transaction_id/edit' => 'transactions#edit', as: :edit_transaction
 
+  match 'shops/:id/transactions/create' => 'transactions#create', :as => :create_transaction, :via => :post
+
   get 'students/:id' => 'students#show', as: :student
   get 'students/:id/edit' => 'students#edit', as: :edit_student
 

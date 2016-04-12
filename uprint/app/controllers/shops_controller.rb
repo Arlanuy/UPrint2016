@@ -7,6 +7,7 @@ class ShopsController < ApplicationController
   end
 
   def show
+    @transaction = Shop.find(params[:id]).transactions.build
   end
 
   def new
