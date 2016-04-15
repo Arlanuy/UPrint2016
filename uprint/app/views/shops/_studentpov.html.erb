@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Semantic work pls</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/dist/semantic.min.css">
+    <script type='text/javascript' src="Semantic-UI-CSS-master/dist/semantic.min.js"></script>
+
+
+    <style>
+
+        ul li  {
+          margin: 0px 0px 0px 0px;
+        }
+
+        p{
+          margin: 0px 0px 0px 0px;
+        }
+
+        #info {
+          background-color:;
+        }
+
+        #segment-header {
+
+
+        }
+
+        #info {
+
+        }
+
+        .question {
+
+        }
+
+        .answer {
+
+        }
+        #question {
+          padding-right: 10px;
+        }
+
+
+
+    </style>
+
+</head>
+
+<body style = "padding-bottom: 300px;">
+  <div class="ui secondary pointing menu" style = "padding-left:60px; padding-right: 120px;">
+        <a class="active item">
+          Home
+        </a>
+        <a class="item">
+          Shops
+        </a>
+        <a class="item">
+          Files
+        </a>
+        <div class="right menu">
+          <a class="ui item">
+            Logout       <i class="sign out icon"></i>
+          </a>
+        </div>
+  </div>
+
+
+  <div class = "ui three column grid container">
+
+  <div class="column">
+    <div class="ui raised segment">
+      <h2 class="ui header">
+      <%= link_to(current_student.name, current_student) %>
+      <div class="sub header"><%= current_student.student_number %></div>
+      </h2>
+      <div class="ui divider"></div>
+      <div class="ui list">
+        <div class="item">
+          <h5><i class="mail icon"></i><%= current_student.email %></h5>
+        </div>
+        <div class="item">
+          <h5><i class="phone icon"></i><%= current_student.contact_number %></h5>
+        </div>
+      </div>
+  	</div>
+  </div>
+
+
+  <div class = "column"  style="text-align: center" >
+    <div>
+      <div class="ui raised segments" >
+        <div class="ui segment" id = "segment-header">
+          <h1 ><%= @shop.shop_name %></h1>
+        </div>
+
+        <div class = "ui teal segment" id = "question" >
+          <p>Address: <strong><%= @shop.location %></strong></p>
+          <!--p>Status: <strong class = "green">Online</strong> <i class="check circle icon green"></i></p-->
+          <p>Status:
+            <% if @shop.is_available %>
+              <strong class = "green">Online</strong>
+              <i class="check circle icon green"></i></div>
+            <% else %>
+              <strong class = "red">Offline</strong>
+              <i class="tiny circle icon red"></i></div>
+            <% end %>
+          </p>
+        </div>
+      </div>
+
+
+      <div class="ui teal raised segments" >
+        <div class="ui segment" id = "segment-header">
+          <h1 class = "heading-title">Prices (per page)</h1>
+        </div>
+        <div class="ui teal segment" id = "info">
+          <li class = "question">Black and white: <strong>P2.00</strong></li>
+          <li class = "question">Colored: <strong>P5.00</strong></li>
+        </div>
+      </div>
+
+      <div class="ui teal raised segments" >
+        <div class="ui segment" id = "segment-header">
+          <h1 >Shop hours</h1>
+        </div>
+        <div class="ui teal segment"id = "info" >
+          <li class = "question">Weekdays: <strong>8AM - 8PM</strong></li>
+          <li class = "question">Weekends: <strong>8AM - 8PM</strong></li>
+        </div>
+      </div>
+
+      <div class="ui raised segments" >
+        <div class="ui segment" id = "segment-header">
+          <h1>Contact Us</h1>
+        </div>
+        <div class="ui teal segment" id = "info">
+          <p class = "question">Email: <strong class = "answer"><%= @shop.email %></strong></p>
+          <p class = "question"> Contact number: <strong><%= @shop.contact_number %></strong></p>
+        </div>
+      </div>
+    </div>
+
+<!--            <div>
+              <div id="googleMap" style="width:300px;height:245px;"></div>
+          </div> -->
+  <div class = "column " id = "wrapper" style="text-align: center">
+    <div class="ui raised segments" style: "">
+      <div  class ="ui segment">
+        <h1>Order Form</h1>
+      </div>
+      <div class="ui teal segment fluid form" id = "form">
+        <div class = "field">
+            <label>Number of Copies</label>
+            <input placeholder="Number of Copies" type="text">
+        </div>
+
+        <div class = "field" >
+          <label> Paper Size </label>
+          <div class="inline fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="frequency" checked="checked">
+                <label>A4</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="frequency">
+                <label>Short Bond</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="frequency">
+                <label>Long Bond</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class = "field" >
+          <label> Color Settings </label>
+          <div class="inline fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="frequency" checked="checked">
+                <label>Colored</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="frequency">
+                <label>Black and White</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="frequency">
+                <label>Gray Scale</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Additional Specifications</label>
+          <textarea rows="4" placeholder = "shit"></textarea>
+        </div>
+
+        </br>
+
+        <button class="ui inverted blue button active centered" style = ""> Upload File <i class="upload icon"></i></button>
+        </br>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
