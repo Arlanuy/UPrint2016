@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
+<% if student_signed_in? %>
+  <%= render "studentpov" %>
+<% elsif shop_signed_in? %>
+  <%= render "shoppov" %>
+<% end %>

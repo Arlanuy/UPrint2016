@@ -1,4 +1,16 @@
 class TransactionsController < ApplicationController
+  def index
+    # For the student
+  end
+
+  def show
+    # For the shop
+  end
+
+  def edit
+    # For the shop
+  end
+
   def create
   	@shop = Shop.find(params[:id])
   	@student = Student.find(params[:id])
@@ -17,4 +29,5 @@ class TransactionsController < ApplicationController
   private
   	def transaction_params
   		params.require(:transaction).permit(:shop_name, :student_number)
+    end
 end
