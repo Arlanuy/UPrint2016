@@ -66,7 +66,40 @@
       <!--h3 class="ui header">Transactions</h3-->
       <h3><%= link_to("Transactions", {:controller => "transactions", :action => "index", :id => current_student.id}, html_options={:class => "ui header"}) %></h3>
       <div class="ui relaxed divided list">
-        <div class="item">
+        <% if @transactions %>
+          <% @transactions.each do |t| %>
+            <div class="item">
+              <% if t.date_downloaded != nil %>
+                <% if t.date_paid == nil %>
+                  <i class="large check circle outline icon"></i>
+                <% else %>
+                  <i class="large check circle icon"></i>
+                <% end %>
+              <% else %>
+                <i class="large wait icon"></i>
+              <% end %>
+              <div class="content">
+                <a class="header">Order #<%= t.id %></a>
+                <div class="description">
+                  File for
+                  <%= link_to shop_path(t.shop_id) do %>
+                    <%= Shop.find(t.shop_id).shop_name %>.
+                  <% end %>
+                  <% if t.date_downloaded != nil %>
+                    <% if t.date_paid == nil %>
+                      Ready to be claimed.
+                    <% else %>
+                      Paid for already.
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>No transactions!</p>
+        <% end %>
+        <!--div class="item">
           <i class="large check circle icon"></i>
           <div class="content">
             <a class="header">Order #1234</a>
@@ -92,7 +125,7 @@
               Eng 10 Readings from <a>Shop #1234</a>. Pending since January 21, 2016.
             </div>
           </div>
-        </div>
+        </div-->
       </div>
     </div>
   </div>

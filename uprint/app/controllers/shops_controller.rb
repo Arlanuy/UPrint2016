@@ -4,9 +4,15 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.order(:shop_name)
+    if student_signed_in?
+      @transactions = current_student.transactions.all
+    end
   end
 
   def show
+    if shop_signed_in?
+	  @transactions = current_shop.transactions.all
+	end
   end
 
   def new
