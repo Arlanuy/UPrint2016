@@ -9,11 +9,27 @@ class TransactionsController < ApplicationController
   end
 
   def show
-    # For the shop
+    # For both?; when viewing the details of a transaction
+    if student_signed_in?
+      redirect_to root_path
+    end
   end
 
   def edit
-    # For the shop
+    # For the shop; when changing the details of a transaction
+    if student_signed_in?
+      redirect_to root_path
+    end
+  end
+
+  def update
+  end
+
+  def new
+    # For the student; when the file is being uploaded
+    if shop_signed_in?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -25,6 +41,7 @@ class TransactionsController < ApplicationController
   end
 
   def destroy
+    # For both? When rejecting (shop) or cancelling (student) a transaction
     @shop = Shop.find(params[:id])
     @transaction = @shop.transaction.find(params[:id])
     @transaction.destroy

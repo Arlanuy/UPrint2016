@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>UPrint</title>
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
@@ -11,9 +11,9 @@
 				<div class="ui menu top fixed">
 					<div class="header item"><%= link_to "UPrint", root_path %></div>
 					<div class="right menu">
-				        <!-- <a class="ui item"> Logout <i class="sign out icon"></i> </a> -->
-				        <%= link_to "Logout <i class='sign out icon'></i>".html_safe, destroy_student_session_path, method: :delete, class: "ui item" %>
-				    </div>
+								<!-- <a class="ui item"> Logout <i class="sign out icon"></i> </a> -->
+								<%= link_to "Logout <i class='sign out icon'></i>".html_safe, destroy_student_session_path, method: :delete, class: "ui item" %>
+						</div>
 				</div>
 			</header>
 		<% end %>
