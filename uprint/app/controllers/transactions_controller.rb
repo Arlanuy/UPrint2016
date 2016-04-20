@@ -8,8 +8,10 @@ class TransactionsController < ApplicationController
 
   def create
     @shop = Shop.find(params[:id])
-    @transaction = @shop.transactions.build(transaction_params.merge({:date_sent => DateTime.now}))
-    if @transaction.save
+    @filler_data = {:date_sent => DateTime.now, :price => 69.0}
+    @transaction_data = transaction_params.merge(@filler_data)
+    @transaction = Transaction.create(@transaction_data)
+    if @shop.transactions << @transaction
       redirect_to shops_path
     else
       flash.now[:alert] = "There was some error in input."
@@ -26,6 +28,6 @@ class TransactionsController < ApplicationController
 
   private
   def transaction_params
-    params.require(:transaction).permit(:price, :paper_size, :color_settings, :additional_specs)
+    params.require(:transaction).permit(:paper_size, :color_settings, :additional_specs, :file)
   end
 end

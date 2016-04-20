@@ -5,6 +5,7 @@ gem 'pg'
 gem 'bcrypt', '~> 3.1.7'
 gem 'turbolinks'
 gem 'devise'
+gem 'paperclip'
 
 # Front end gems
 gem 'jquery-rails'
