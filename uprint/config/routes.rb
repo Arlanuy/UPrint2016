@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'transactions/destroy'
 
-  devise_for :shops, :controllers => { :registrations => "shops/registrations" }
+  devise_for :shops, :controllers => { :registrations => "shops/registrations", :sessions => "shops/sessions" }
   #devise_for :shops
   devise_for :students, :controllers => { :registrations => "students/registrations" }
   resources :shops
@@ -27,6 +27,9 @@ Rails.application.routes.draw do
 
   get 'students/:id' => 'students#show', as: :student
   get 'students/:id/edit' => 'students#edit', as: :edit_student
+
+  # Toggle availability
+  match 'shops/available' => 'shops#toggle_availability', :as => :toggle_availability, :via => :post
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
