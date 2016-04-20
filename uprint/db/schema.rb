@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414032751) do
+ActiveRecord::Schema.define(version: 20160410063037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20160414032751) do
   add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "customer_id"
+    t.integer  "student_id"
     t.integer  "shop_id"
     t.datetime "date_sent",         null: false
     t.datetime "date_downloaded"

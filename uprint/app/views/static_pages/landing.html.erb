@@ -54,6 +54,9 @@
 	<% elsif shop_signed_in? %>
 		<%= link_to "Awkward Shop Sign Out Button", destroy_shop_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
 	<% end %>
+	<% if flash[:alert] %>
+		<div class="ui negative message"><p><%= flash[:alert] %></p></div>
+	<% end %>
 					</div>
 				</div>
 				<div class="sixteen wide column" style="margin-top: 1rem;">

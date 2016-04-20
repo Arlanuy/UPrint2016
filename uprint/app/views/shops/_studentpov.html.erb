@@ -48,7 +48,7 @@
 </head>
 
 <body style = "padding-bottom: 300px;">
-  <div class="ui secondary pointing menu" style = "padding-left:60px; padding-right: 120px;">
+  <!--div class="ui secondary pointing menu" style = "padding-left:60px; padding-right: 120px;">
         <a class="active item">
           Home
         </a>
@@ -63,7 +63,7 @@
             Logout       <i class="sign out icon"></i>
           </a>
         </div>
-  </div>
+  </div-->
 
 
   <div class = "ui three column grid container">
@@ -71,7 +71,7 @@
   <div class="column">
     <div class="ui raised segment">
       <h2 class="ui header">
-      <%= link_to(current_student.name, current_student) %>
+      <%= link_to(current_student.name, edit_student_registration_path) %>
       <div class="sub header"><%= current_student.student_number %></div>
       </h2>
       <div class="ui divider"></div>

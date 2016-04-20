@@ -14,11 +14,11 @@ class StaticPagesController < ApplicationController
   end
 
   def landing
-  	if student_signed_in?
-  		redirect_to shops_path
+    if student_signed_in?
+      redirect_to shops_path
     elsif shop_signed_in?
       redirect_to current_shop
-  	end
+    end
   end
 
   def shop_views

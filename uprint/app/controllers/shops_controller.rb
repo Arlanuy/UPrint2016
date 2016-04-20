@@ -4,10 +4,16 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.order(:shop_name)
+    if student_signed_in?
+      @transactions = current_student.transactions.all
+    end
   end
 
   def show
     @transaction = Shop.find(params[:id]).transactions.build
+    if shop_signed_in?
+    @transactions = current_shop.transactions.all
+    end
   end
 
   def new
@@ -41,6 +47,7 @@ class ShopsController < ApplicationController
 
   def available
     @all_shops = Shop.order(:shop_name)
+    @transactions = current_shop.transactions
   end
   helper_method :available
 
