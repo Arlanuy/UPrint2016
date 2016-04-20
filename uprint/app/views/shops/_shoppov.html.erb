@@ -132,9 +132,9 @@
                   </div>
                   <div class="ui segment">
                     <div id="outer">
-                      <button id = "inner"class=" ui blue  button active " style = ""> Download </i></button>
-                      <button id="inner" class=" ui red button active ">Cancel </i></button>
-                      <button id="inner" class=" ui green button active ">Printed </i></button>
+                      <%= link_to "Download", t.file.url, class: "ui blue button active", id: "inner" %>
+                      <%= link_to "Cancel", "#", class: "ui red button active", id: "inner" %>
+                      <%= link_to "Printed", "#", class: "ui green button active", id: "inner" %>
                     </div>
                   </div>
                 </div>
