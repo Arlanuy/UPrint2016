@@ -5,7 +5,7 @@ class ShopsController < ApplicationController
   def index
     @shops = Shop.order(:shop_name)
     if student_signed_in?
-      @transactions = current_student.transactions.all
+      @transactions = current_student.transactions.last(5)
     end
   end
 

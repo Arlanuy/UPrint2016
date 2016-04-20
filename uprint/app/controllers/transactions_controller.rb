@@ -9,14 +9,16 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @shop = Shop.find(params[:id])
-    @filler_data = {:date_sent => DateTime.now, :price => 69.0}
-    @transaction_data = transaction_params.merge(@filler_data)
-    @transaction = Transaction.create(@transaction_data)
-    if @shop.transactions << @transaction
-      redirect_to shops_path
-    else
-      flash.now[:alert] = "There was some error in input."
+    if student_signed_in?
+      @shop = Shop.find(params[:id])
+      @filler_data = {:date_sent => DateTime.now, :price => 69.0, :student_id => current_student.id}
+      @transaction_data = transaction_params.merge(@filler_data)
+      @transaction = Transaction.create(@transaction_data)
+      if @shop.transactions << @transaction
+        redirect_to shops_path
+      else
+        flash.now[:alert] = "There was some error in input."
+      end
     end
   end
 
