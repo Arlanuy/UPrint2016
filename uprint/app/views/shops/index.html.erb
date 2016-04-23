@@ -51,7 +51,13 @@
       <% @shops.each do |shop| %>
         <%= link_to(shop, html_options={:class => "card"}) do %>
           <div class="content">
-            <div class="header"><%= shop.shop_name %> <i class="tiny circle icon red"></i></div>
+            <div class="header"><%= shop.shop_name %>
+            <% if shop.is_available %>
+              <i class="tiny circle icon green"></i>
+            <% else %>
+              <i class="tiny circle icon red"></i>
+            <% end %>
+            </div>
             <div class="ui divider"></div>
             <div class="description">Located at: <%= shop.location %></div>
           </div>

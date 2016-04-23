@@ -12,7 +12,11 @@
 					<div class="header item"><%= link_to "UPrint", root_path %></div>
 					<div class="right menu">
 								<!-- <a class="ui item"> Logout <i class="sign out icon"></i> </a> -->
+								<% if student_signed_in? %>
 								<%= link_to "Logout <i class='sign out icon'></i>".html_safe, destroy_student_session_path, method: :delete, class: "ui item" %>
+								<% else %>
+								<%= link_to "Logout <i class='sign out icon'></i>".html_safe, destroy_shop_session_path, method: :delete, class: "ui item" %>
+								<% end %>
 						</div>
 				</div>
 			</header>

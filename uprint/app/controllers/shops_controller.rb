@@ -51,6 +51,12 @@ class ShopsController < ApplicationController
   end
   helper_method :available
 
+  def toggle_availability
+    current_shop.update(is_available: !(current_shop.is_available))
+    puts "current shop is #{current_shop.is_available}"
+    render :nothing => true
+  end
+
   private
     def set_shop
       @shop = Shop.find(params[:id])

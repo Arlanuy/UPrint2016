@@ -97,6 +97,15 @@
           <h2 class="ui header">
           <%= link_to(current_shop.shop_name, edit_shop_registration_path) %>
           <div class="sub header"><%= current_shop.location %></div>
+          <div class="ui divider"></div>
+          <div id="avail-text" class="sub header">
+            <% if current_shop.is_available %>
+            <i id="avail-switch" class="toggle on icon green big" onclick="toggleAvailability()"></i>
+            <% else %>
+            <i id="avail-switch" class="toggle off icon green big" onclick="toggleAvailability()"></i>
+            <% end %> | Toggle Availability
+            <!-- Button for availability toggle goes somewhere here and should be #avail-switch. AJAX code in shops.js; Backend in ShopsController -->
+          </div>
           </h2>
           <div class="ui divider"></div>
           <div class="ui list">

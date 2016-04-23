@@ -3,7 +3,6 @@ class CreateShops < ActiveRecord::Migration
     create_table :shops do |t|
       t.string  :shop_name
       t.string  :location
-      t.string   :email
 
       t.timestamps null: false
     end
