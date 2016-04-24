@@ -37,6 +37,12 @@ class TransactionsController < ApplicationController
   end
 
   def update
+    # For the shop; when marking as paid
+    if shop_signed_in?
+      @transaction = current_shop.transactions.find(params[:id])
+      @transaction.update(date_paid: Time.now)
+      redirect_to root_path
+    end
   end
 
   def new
@@ -48,10 +54,26 @@ class TransactionsController < ApplicationController
 
   def destroy
     # For both? When rejecting (shop) or cancelling (student) a transaction
-    @shop = Shop.find(params[:id])
-    @transaction = @shop.transaction.find(params[:id])
-    @transaction.destroy
-    redirect_to shop_path(@shop)
+    if shop_signed_in?
+      @transaction = current_shop.transactions.find(params[:id])
+      @transaction.destroy
+      redirect_to root_path
+    end
+  end
+
+  def download
+    @transaction = Transaction.find(params[:id])
+    if @transaction.file_file_name
+      send_file @transaction.file.path,
+        :filename => @transaction.file_file_name,
+        :type => @transaction.file_content_type,
+        :disposition => 'attachment'
+      @transaction.update(date_downloaded: Time.now)
+    else
+      #redirect_to '/errors/missing_file'
+      flash[:alert] = "File missing."
+      redirect_to root_path
+    end
   end
 
   private

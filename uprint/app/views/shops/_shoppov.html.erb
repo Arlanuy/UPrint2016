@@ -97,16 +97,19 @@
           <h2 class="ui header">
           <%= link_to(current_shop.shop_name, edit_shop_registration_path) %>
           <div class="sub header"><%= current_shop.location %></div>
+          </h2>
+          <a class="ui top right attached label">
+            <i class="settings icon"></i>
+          </a>
           <div class="ui divider"></div>
           <div id="avail-text" class="sub header">
             <% if current_shop.is_available %>
             <i id="avail-switch" class="toggle on icon green big" onclick="toggleAvailability()"></i>
             <% else %>
             <i id="avail-switch" class="toggle off icon green big" onclick="toggleAvailability()"></i>
-            <% end %> | Toggle Availability
+            <% end %><div class="ui left pointing label">Toggle Availability</div>
             <!-- Button for availability toggle goes somewhere here and should be #avail-switch. AJAX code in shops.js; Backend in ShopsController -->
           </div>
-          </h2>
           <div class="ui divider"></div>
           <div class="ui list">
             <div class="item">
@@ -117,11 +120,16 @@
             </div>
           </div>
         </div>
+        <% if flash[:alert] %>
+        <div class="ui red floating message">
+          <p><%= flash[:alert] %></p>
+        </div>
+        <% end %>
       </div>
 
       <div class="column">
         <div class="ui yellow raised segment" style = "background-color: ;">
-          <h1>Pending</h1>
+          <h1>For Downloading</h1>
           <% if @transactions %>
             <% @transactions.each do |t| %>
               <% if !(t.date_downloaded) %>
@@ -141,9 +149,7 @@
                   </div>
                   <div class="ui segment">
                     <div id="outer">
-                      <%= link_to "Download", t.file.url, class: "ui blue button active", id: "inner" %>
-                      <%= link_to "Cancel", "#", class: "ui red button active", id: "inner" %>
-                      <%= link_to "Printed", "#", class: "ui green button active", id: "inner" %>
+                      <%= link_to "Download", download_path(current_shop.id, t.id), class: "ui green button active", id: "outer" %>
                     </div>
                   </div>
                 </div>
@@ -155,7 +161,7 @@
 
       <div class="column">
         <div class="ui blue raised segment">
-          <h1>Printed Unpaid</h1>
+          <h1>For Printing</h1>
           <% if @transactions %>
             <% @transactions.each do |t| %>
               <% if t.date_downloaded && !(t.date_paid) %>
@@ -174,8 +180,9 @@
                     <ul class= "">The number of pages, paper size, color, and additional specifications are not dynamic yet</ul>
                   </div>
                   <div class="ui segment">
-                    <div id="outer">
-                      <button id="outer" class=" ui green button active ">Paid</button>
+                    <div class="two ui buttons" id="outer">
+                      <%= link_to "Download", t.file.url, class: "ui green button active" %>
+                      <%= link_to "Done", shop_transaction_path(current_shop.id, t.id), method: :patch, class: "ui blue button active" %>
                     </div>
                   </div>
                 </div>
@@ -189,7 +196,7 @@
             </div> -->
       <div class="column">
         <div class="ui green raised segment" style="color: #333;"> <!-- style is to fix the weird green coloration -->
-          <h1>Printed Paid</h1>
+          <h1>For Payment</h1>
           <% if @transactions %>
             <% @transactions.each do |t| %>
               <% if t.date_downloaded && t.date_paid %>
@@ -209,7 +216,8 @@
                   </div>
                   <div class="ui segment">
                     <div id="outer">
-                      <button id="outer" class=" ui blue button active ">Remove</button>
+                      <%= link_to "Paid", "#", class: "ui red button active", id: "outer" %>
+                      <!-- Normally this would have: shop_transaction_path(current_shop.id, t.id), method: :delete, but the record itself doesn't get deleted -->
                     </div>
                   </div>
                 </div>

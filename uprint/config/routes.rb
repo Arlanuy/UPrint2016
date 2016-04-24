@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   devise_for :shops, :controllers => { :registrations => "shops/registrations", :sessions => "shops/sessions" }
   #devise_for :shops
   devise_for :students, :controllers => { :registrations => "students/registrations" }
-  resources :shops
+
+  resources :shops do
+    resources :transactions
+  end
 
   root 'static_pages#landing'
 
@@ -20,13 +23,16 @@ Rails.application.routes.draw do
 
   # Since transactions backend is still not done, these routes are just for show.
   get 'students/:id/transactions' => 'transactions#index', as: :transactions
-  get 'shop/:id/transactions/:transaction_id' => 'transactions#show', as: :transaction
-  get 'shop/:id/transactions/:transaction_id/edit' => 'transactions#edit', as: :edit_transaction
+  get 'shops/:id/transactions/:transaction_id' => 'transactions#show', as: :transaction
+  get 'shops/:id/transactions/:transaction_id/edit' => 'transactions#edit', as: :edit_transaction
 
+  # File upload / download
   match 'shops/:id/transactions/create' => 'transactions#create', :as => :create_transaction, :via => :post
+  get 'shops/:shop_id/transactions/:id/download' => 'transactions#download', :as => :download
+  get 'errors/missing_file'
 
-  get 'students/:id' => 'students#show', as: :student
-  get 'students/:id/edit' => 'students#edit', as: :edit_student
+  #get 'students/:id' => 'students#show', as: :student
+  #get 'students/:id/edit' => 'students#edit', as: :edit_student
 
   # Toggle availability
   match 'shops/available' => 'shops#toggle_availability', :as => :toggle_availability, :via => :post
