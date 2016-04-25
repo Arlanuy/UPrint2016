@@ -1,0 +1,35 @@
+<div class = " " style="margin: 0 auto;">
+    <div class="ui green raised segment container">
+        <%= form_for(edit_registration_path, html_option = { class: "ui form" }) do |f| %>
+            <h1 class = "">Shop Settings</h1>
+
+            <div class = "field" >
+                <label> Name </label>
+                <%= f.text_field :shop_name, placeholder: "Shop name" %>
+                </br>
+                </br>
+                <label> Address</label>
+                <%= f.text_field :location, html_options = {value: "", placeholder: "Shop location"} %>
+                </br>
+                </br>
+                <label> Contact Number</label>
+                <%= f.text_field :contact_number, html_options = {value: "", placeholder: "Contact details"} %>
+                </br>
+                </br>
+                <label> Email </label>
+                <%= f.text_field :email, html_options = {value: "", placeholder: "Shop email"} %>
+                </br>
+                </br>
+                <label> New Password </label>
+                <%= f.password_field :password %>
+                </br>
+                </br>
+                <label> Confirm New Password </label>
+                <%= f.password_field :password_confirmation %>
+                </br>
+                </br>
+                <%= f.submit html_options = {class: "ui green button"} %> Save Changes
+            </div>
+        <% end %>
+    </div>
+</div>

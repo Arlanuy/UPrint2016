@@ -96,13 +96,11 @@
         <div class="ui raised segment">
           <h2 class="ui header">
           <%= current_shop.shop_name %>
+          <%= link_to edit_shop_registration_path, html_options = {id: 'shop_edit'} do %>
+            <i class="options icon"></i>
+          <% end %>
           <div class="sub header"><%= current_shop.location %></div>
           </h2>
-          <%= link_to edit_shop_registration_path do %>
-          <div class="ui top right attached label">
-            <i class="options icon"></i>
-          </div>
-          <% end %>
           <div class="ui divider"></div>
           <div id="avail-text" class="sub header">
             <% if current_shop.is_available %>
