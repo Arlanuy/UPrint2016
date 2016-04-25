@@ -95,18 +95,20 @@
       <div class="column">
         <div class="ui raised segment">
           <h2 class="ui header">
-          <%= link_to(current_shop.shop_name, edit_shop_registration_path) %>
+          <%= current_shop.shop_name %>
           <div class="sub header"><%= current_shop.location %></div>
           </h2>
-          <a class="ui top right attached label">
-            <i class="settings icon"></i>
-          </a>
+          <%= link_to edit_shop_registration_path do %>
+          <div class="ui top right attached label">
+            <i class="options icon"></i>
+          </div>
+          <% end %>
           <div class="ui divider"></div>
           <div id="avail-text" class="sub header">
             <% if current_shop.is_available %>
-            <i id="avail-switch" class="toggle on icon green big" onclick="toggleAvailability()"></i>
+            <i id="avail-switch" class="toggle on icon green big"></i>
             <% else %>
-            <i id="avail-switch" class="toggle off icon green big" onclick="toggleAvailability()"></i>
+            <i id="avail-switch" class="toggle off icon green big"></i>
             <% end %><div class="ui left pointing label">Toggle Availability</div>
             <!-- Button for availability toggle goes somewhere here and should be #avail-switch. AJAX code in shops.js; Backend in ShopsController -->
           </div>
@@ -164,7 +166,7 @@
           <h1>For Printing</h1>
           <% if @transactions %>
             <% @transactions.each do |t| %>
-              <% if t.date_downloaded && !(t.date_paid) %>
+              <% if t.date_downloaded && !(t.date_printed) %>
                 <% s = Student.find(t.student_id) %>
                 <div class = "ui segments">
                   <div class="ui segment">
@@ -181,8 +183,8 @@
                   </div>
                   <div class="ui segment">
                     <div class="two ui buttons" id="outer">
-                      <%= link_to "Download", t.file.url, class: "ui green button active" %>
-                      <%= link_to "Done", shop_transaction_path(current_shop.id, t.id), method: :patch, class: "ui blue button active" %>
+                      <%= link_to "Download", download_path(current_shop.id, t.id), class: "ui green button active" %>
+                      <%= link_to "Done", printed_path(current_shop.id, t.id), method: :post, class: "ui blue button active" %>
                     </div>
                   </div>
                 </div>
@@ -199,7 +201,7 @@
           <h1>For Payment</h1>
           <% if @transactions %>
             <% @transactions.each do |t| %>
-              <% if t.date_downloaded && t.date_paid %>
+              <% if t.date_downloaded && t.date_printed && !(t.date_paid) %>
                 <% s = Student.find(t.student_id) %>
                 <div class = "ui segments">
                   <div class="ui segment">
@@ -216,7 +218,7 @@
                   </div>
                   <div class="ui segment">
                     <div id="outer">
-                      <%= link_to "Paid", "#", class: "ui red button active", id: "outer" %>
+                      <%= link_to "Paid", paid_path(current_shop.id, t.id), method: :post, class: "ui red button active", id: "outer" %>
                       <!-- Normally this would have: shop_transaction_path(current_shop.id, t.id), method: :delete, but the record itself doesn't get deleted -->
                     </div>
                   </div>

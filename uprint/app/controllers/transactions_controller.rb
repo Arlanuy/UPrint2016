@@ -76,6 +76,22 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def printed
+    if shop_signed_in?
+      @transaction = current_shop.transactions.find(params[:id])
+      @transaction.update(date_printed: Time.now)
+      redirect_to root_path
+    end
+  end
+
+  def paid
+    if shop_signed_in?
+      @transaction = current_shop.transactions.find(params[:id])
+      @transaction.update(date_paid: Time.now)
+      redirect_to root_path
+    end
+  end
+
   private
   def transaction_params
     params.require(:transaction).permit(:paper_size, :color_settings, :additional_specs, :file)

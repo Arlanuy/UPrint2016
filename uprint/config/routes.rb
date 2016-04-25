@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   get 'shops/:shop_id/transactions/:id/download' => 'transactions#download', :as => :download
   get 'errors/missing_file'
 
+  # Transaction editing
+  post 'shops/:shop_id/transactions/:id/printed' => 'transactions#printed', :as => :printed
+  post 'shops/:shop_id/transactions/:id/paid' => 'transactions#paid', :as => :paid
+
   #get 'students/:id' => 'students#show', as: :student
   #get 'students/:id/edit' => 'students#edit', as: :edit_student
 
