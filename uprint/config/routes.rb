@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
   devise_for :shops, :controllers => { :registrations => "shops/registrations", :sessions => "shops/sessions" }
   #devise_for :shops
+  #patch '/shops/edit' => 'shops/registrations#update'
   devise_for :students, :controllers => { :registrations => "students/registrations" }
 
-  resources :shops do
+  resources :shops, :only => [:show, :index] do
     resources :transactions
   end
 

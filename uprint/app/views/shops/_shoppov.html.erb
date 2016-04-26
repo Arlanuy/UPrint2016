@@ -125,6 +125,11 @@
           <p><%= flash[:alert] %></p>
         </div>
         <% end %>
+        <% if flash[:notice] %>
+        <div class="ui green floating message">
+          <p><%= flash[:notice] %></p>
+        </div>
+        <% end %>
       </div>
 
       <div class="column">

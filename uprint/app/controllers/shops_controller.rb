@@ -1,6 +1,10 @@
 class ShopsController < ApplicationController
-  before_action :authenticate_shop!, except: [:create, :show, :index]
+  before_action :authenticate_shop!, except: [:show, :index]
   before_action :set_shop, only: [:show, :edit, :update, :destroy]
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:shop]
+  end
 
   def index
     @shops = Shop.order(:shop_name)
@@ -14,35 +18,6 @@ class ShopsController < ApplicationController
     if shop_signed_in?
     @transactions = current_shop.transactions.all
     end
-  end
-
-  def new
-    @shop = Shop.new
-  end
-
-  def edit
-  end
-
-  def create
-    @shop = Shop.create(shop_params)
-    if @shop.save
-      redirect_to @shop, notice: 'Shop was successfully created.'
-    else
-      render :new
-    end
-  end
-
-  def update
-    if @shop.update(shop_params)
-      redirect_to @shop, notice: 'Shop was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @shop.destroy
-    redirect_to shops_url, notice: 'Shop was successfully destroyed.'
   end
 
   def available
