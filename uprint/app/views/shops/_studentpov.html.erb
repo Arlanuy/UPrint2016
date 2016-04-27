@@ -203,6 +203,11 @@
           </div>
         </div>
 
+		<div class="field">
+		  <label> Number of Pages (leave empty if unsure)</label>
+		  <%= f.number_input %>
+		</div>
+
         <div class="field">
           <label>Additional Specifications</label>
           <%= f.text_area(:additional_specs, :rows => 4, :placeholder => "shit") %>

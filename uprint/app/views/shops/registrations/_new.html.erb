@@ -29,5 +29,19 @@
       <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
     </div>
   </div>
+  <div class="fields">
+    <div class="four wide field">
+      <label>Price/Page (Black and White)</label>
+      <%= f.number_field :price_blwt %>
+    </div>
+    <div class="four wide field">
+      <label>Price/Page (Greyscale)</label>
+      <%= f.number_field :price_grey %>
+    </div>
+    <div class="four wide field">
+      <label>Price/Page (Colored)</label>
+      <%= f.number_field :price_colr %>
+    </div>
+  </div>
   <button class="ui button">Sign up</button>
 <% end %>

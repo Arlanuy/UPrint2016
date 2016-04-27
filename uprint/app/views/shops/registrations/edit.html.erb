@@ -20,6 +20,14 @@
                 <%= f.text_field :email, placeholder: "Shop email" %>
                 </br>
                 </br>
+                <label>Pricing</label>
+                <div class="fields">
+                <div class="four wide field"><label>Black and White: </label><%= f.number_field :price_blwt, step: '0.05' %></div>
+                <div class="four wide field"><label>Greyscale: </label><%= f.number_field :price_grey, step: '0.05' %></div>
+                <div class="four wide field"><label>Colored: </label><%= f.number_field :price_colr, step: '0.05' %></div>
+                </div>
+                </br>
+                </br>
                 <label> New Password </label>
                 <%= f.password_field :password %>
                 </br>

@@ -19,7 +19,9 @@ class Shops::RegistrationsController < Devise::RegistrationsController
                                                   :location,
                                                   :email,
                                                   :contact_number,
-                                                  :pricing,
+                                                  :price_blwt,
+                                                  :price_grey,
+                                                  :price_colr,
                                                   :password,
                                                   :password_confirmation)
 
@@ -27,7 +29,9 @@ class Shops::RegistrationsController < Devise::RegistrationsController
                                                   :location,
                                                   :email,
                                                   :contact_number,
-                                                  :pricing,
+                                                  :price_blwt,
+                                                  :price_grey,
+                                                  :price_colr,
                                                   :password,
                                                   :password_confirmation)
   end
