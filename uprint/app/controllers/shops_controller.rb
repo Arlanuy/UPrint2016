@@ -32,6 +32,12 @@ class ShopsController < ApplicationController
     render :nothing => true
   end
 
+  def shop_dashboard
+    @transactions = current_shop.transactions.order(:date_sent)
+    puts @transactions.count
+  end
+  helper_method :shop_dashboard
+  
   private
     def set_shop
       @shop = Shop.find(params[:id])
