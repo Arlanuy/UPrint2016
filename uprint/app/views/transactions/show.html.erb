@@ -1,1 +1,19 @@
 <h1>SHOWING TRANSACTION</h1>
+<h3>Just dumping this here</h3>
+Shop: <%= Shop.find(@transaction.shop_id).shop_name %> <br>
+Date sent: <%= @transaction.date_sent %> <br>
+Paper size: <%= @transaction.paper_size %> <br>
+Color settings: <%= @transaction.color_settings %> <br>
+Additional specs: <%= @transaction.additional_specs %> <br>
+File: <%= link_to "Click here to download", download_path(@transaction.shop_id, @transaction.id) %> <br>
+<br>
+<% if @transaction.date_downloaded.nil? %>
+  Not yet downloaded
+<% else %>
+  Already downloaded
+<% end %> <br>
+<% if @transaction.date_printed.nil? %>
+  Not yet printed
+<% else %>
+  Already printed
+<% end %> <br>

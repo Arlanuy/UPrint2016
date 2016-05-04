@@ -15,7 +15,7 @@ class TransactionsController < ApplicationController
       @transaction_data = transaction_params.merge(@filler_data)
       @transaction = Transaction.create(@transaction_data)
       if @shop.transactions << @transaction
-        redirect_to shops_path
+        redirect_to transaction_path(@shop.id, @transaction.id)
       else
         flash.now[:alert] = "There was some error in input."
       end
@@ -24,7 +24,10 @@ class TransactionsController < ApplicationController
 
   def show
     # For both?; when viewing the details of a transaction
-    if student_signed_in?
+    @t = Transaction.find(params[:id])
+    if student_signed_in? and current_student.id == @t.student_id
+      @transaction = @t
+    else
       redirect_to root_path
     end
   end
