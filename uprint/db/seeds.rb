@@ -1,7 +1,7 @@
 shops = [
-  { shop_name: 'Blessings', location: 'Shopping Center', email: 'blessings@gmail.com', password: 'password', contact_number: '09061234567'},
-  { shop_name: 'DHolyBook', location: 'Shopping Center', email: 'holybook@gmail.com', password: 'password', contact_number: '09071234567'},
-  { shop_name: 'Rocids', location: 'Area 2', email: 'example@yahoo.com', password: 'password', contact_number: '09069696969'}
+  { shop_name: 'Blessings', location: 'Shopping Center', email: 'blessings@gmail.com', password: 'password', contact_number: '09061234567', price_blwt: 100, price_grey: 200, price_colr: 300},
+  { shop_name: 'DHolyBook', location: 'Shopping Center', email: 'holybook@gmail.com', password: 'password', contact_number: '09071234567', price_blwt: 200, price_grey: 400, price_colr: 600},
+  { shop_name: 'Rocids', location: 'Area 2', email: 'example@yahoo.com', password: 'password', contact_number: '09069696969', price_blwt: 300, price_grey: 600, price_colr: 900}
 ]
 
 students = [

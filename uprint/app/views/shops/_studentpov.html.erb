@@ -151,8 +151,8 @@
       </div>
       <%= form_for(@transaction, url: create_transaction_path(@shop.id, @transaction), html: { class: 'ui teal segment fluid form', id: 'form'}) do |f| %>
         <div class = "field">
-          <label>Number of Copies</label>
-          <input placeholder="Number of Copies" type="text">
+          <label>Number of Pages</label>
+          <%= f.number_field :number_pages %>
         </div>
 
         <div class = "field" >

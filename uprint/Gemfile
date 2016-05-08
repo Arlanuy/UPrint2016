@@ -16,4 +16,5 @@ group :development, :test do
   gem 'byebug'
   gem 'spring'
   gem 'mailcatcher'
+  gem 'web-console'
 end

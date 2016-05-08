@@ -11,13 +11,20 @@ class TransactionsController < ApplicationController
   def create
     if student_signed_in?
       @shop = Shop.find(params[:id])
-      @filler_data = {:date_sent => DateTime.now, :price => 69.0, :student_id => current_student.id}
+      @filler_data = {:date_sent => DateTime.now, :student_id => current_student.id}
       @transaction_data = transaction_params.merge(@filler_data)
+      @prices = {
+        "Colored" => @shop.price_colr,
+        "Black and White" => @shop.price_blwt,
+        "Gray Scale" => @shop.price_grey
+      }
+      @transaction_data[:price] = @prices[@transaction_data[:color_settings]] * @transaction_data[:number_pages].to_i
       @transaction = Transaction.create(@transaction_data)
       if @shop.transactions << @transaction
         redirect_to transaction_path(@shop.id, @transaction.id)
       else
-        flash.now[:alert] = "There was some error in input."
+        flash[:alert] = "There was some error in input."
+        redirect_to somewhere #idk yet but this needs to redirect to (or render) something
       end
     end
   end
@@ -27,6 +34,13 @@ class TransactionsController < ApplicationController
     @t = Transaction.find(params[:id])
     if student_signed_in? and current_student.id == @t.student_id
       @transaction = @t
+      @shop = Shop.find(@transaction.shop_id)
+      @prices = {
+        "Colored" => @shop.price_colr,
+        "Black and White" => @shop.price_blwt,
+        "Gray Scale" => @shop.price_grey
+      }
+      @price_per_page = @prices[@transaction.color_settings]
     else
       redirect_to root_path
     end
@@ -97,6 +111,6 @@ class TransactionsController < ApplicationController
 
   private
   def transaction_params
-    params.require(:transaction).permit(:paper_size, :color_settings, :additional_specs, :file)
+    params.require(:transaction).permit(:number_pages, :paper_size, :color_settings, :additional_specs, :file)
   end
 end
