@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+<<<<<<< HEAD
   def index
     # For the student
     if student_signed_in?
@@ -19,7 +20,8 @@ class TransactionsController < ApplicationController
         "Gray Scale" => @shop.price_grey
       }
       @transaction_data[:price] = @prices[@transaction_data[:color_settings]] * @transaction_data[:number_pages].to_i
-      @transaction = Transaction.create(@transaction_data)
+      #@transaction = Transaction.create(@transaction_data)
+      @transaction = current_student.transactions.create(@transaction_data)
       if @shop.transactions << @transaction
         redirect_to transaction_path(@shop.id, @transaction.id)
       else
@@ -73,9 +75,11 @@ class TransactionsController < ApplicationController
     # For both? When rejecting (shop) or cancelling (student) a transaction
     if shop_signed_in?
       @transaction = current_shop.transactions.find(params[:id])
-      @transaction.destroy
-      redirect_to root_path
+    else
+      @transaction = current_student.transaction.find(params[:id])
     end
+    @transaction.destroy
+    redirect_to root_path
   end
 
   def download
@@ -113,4 +117,15 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(:number_pages, :paper_size, :color_settings, :additional_specs, :file)
   end
+
+# To be discussed
+=begin
+  def destroy
+  	@shop = Shop.find(params[:id])
+  	@transaction = @shop.transaction.find(params[:id])
+  	@transaction.destroy
+  	redirect_to shop_path(@shop)
+  end
+>>>>>>> 042ccb0a7cf0c9915f2f83a14c9e6e6883ca9a4c
+=end
 end

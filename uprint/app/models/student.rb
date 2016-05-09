@@ -5,5 +5,5 @@ class Student < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,  :confirmable
 
   validates :name, :student_number, :email, :contact_number, presence: true
-  has_many :transactions
+  has_many :transactions, dependent: :destroy
 end
