@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
-<<<<<<< HEAD
+  after_action :reload_page, only: [:download]
+
   def index
     # For the student
     if student_signed_in?
@@ -93,7 +94,7 @@ class TransactionsController < ApplicationController
     else
       #redirect_to '/errors/missing_file'
       flash[:alert] = "File missing."
-      redirect_to root_path
+      redirect_to root_path and return
     end
   end
 
@@ -116,6 +117,9 @@ class TransactionsController < ApplicationController
   private
   def transaction_params
     params.require(:transaction).permit(:number_pages, :paper_size, :color_settings, :additional_specs, :file)
+  end
+
+  def reload_page
   end
 
 # To be discussed

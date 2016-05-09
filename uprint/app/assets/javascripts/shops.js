@@ -13,3 +13,8 @@ $("#avail-switch").click(function() {
 		}
 	});
 });
+
+$('.download').click(function() {
+	window.location.reload(true);
+	alert('MEMES');
+});
