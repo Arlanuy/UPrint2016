@@ -48,8 +48,8 @@ class TransactionsController < ApplicationController
 
   def destroy
     # For both? When rejecting (shop) or cancelling (student) a transaction
-    @shop = Shop.find(params[:id])
-    @transaction = @shop.transaction.find(params[:id])
+    @shop = Shop.find(params[:s_id])
+    @transaction = @shop.transactions.find(params[:t_id])
     @transaction.destroy
     redirect_to shop_path(@shop)
   end
