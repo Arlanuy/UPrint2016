@@ -1,5 +1,4 @@
 class TransactionsController < ApplicationController
-<<<<<<< HEAD
   def index
     # For the student
     if student_signed_in?

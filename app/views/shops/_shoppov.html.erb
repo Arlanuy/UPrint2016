@@ -144,13 +144,13 @@
                     <p class="transaction number">Transaction Number: <strong><%= t.id %></strong> </p>
                     <p class="username">Username: <strong><%= s.name %></strong></p>
                     <p class="contact num">Contact number: <strong><%= s.contact_number %></strong></p>
-                    <p class="num_pages">Number of Pages: <strong>2</strong></p>
-                    <p class="paper_size">Paper Size: <strong>A4</strong></p>
-                    <p class="colored">Color: <strong>Colored</strong></p>
+                    <p class="num_pages">Number of Pages: <strong><%= t.number_pages || "None specified." %></strong></p>
+                    <p class="paper_size">Paper Size: <strong><%= t.paper_size || "None specified." %></strong></p>
+                    <p class="colored">Color: <strong><%= t.color_settings || "None specified." %></strong></p>
                     </br>
                     <p class="additional"><strong>Additional Specifications:</strong></p>
 
-                    <ul class= "">The number of pages, paper size, color, and additional specifications are not dynamic yet</ul>
+                    <ul class= ""><%= t.additional_specs || "None." %></ul>
                   </div>
                   <div class="ui segment">
                     <div id="outer">
@@ -176,13 +176,13 @@
                     <p class="transaction number">Transaction Number: <strong><%= t.id %></strong> </p>
                     <p class="username">Username: <strong><%= s.name %></strong></p>
                     <p class="contact num">Contact number: <strong><%= s.contact_number %></strong></p>
-                    <p class="num_pages">Number of Pages: <strong>2</strong></p>
-                    <p class="paper_size">Paper Size: <strong>A4</strong></p>
-                    <p class="colored">Color: <strong>Colored</strong></p>
+                    <p class="num_pages">Number of Pages: <strong><%= t.number_pages || "None specified." %></strong></p>
+                    <p class="paper_size">Paper Size: <strong><%= t.paper_size || "None specified." %></strong></p>
+                    <p class="colored">Color: <strong><%= t.color_settings || "None specified." %></strong></p>
                     </br>
                     <p class="additional"><strong>Additional Specifications:</strong></p>
 
-                    <ul class= "">The number of pages, paper size, color, and additional specifications are not dynamic yet</ul>
+                    <ul class= ""><%= t.additional_specs || "None." %></ul>
                   </div>
                   <div class="ui segment">
                     <div class="two ui buttons" id="outer">
@@ -211,13 +211,13 @@
                     <p class="transaction number">Transaction Number: <strong><%= t.id %></strong> </p>
                     <p class="username">Username: <strong><%= s.name %></strong></p>
                     <p class="contact num">Contact number: <strong><%= s.contact_number %></strong></p>
-                    <p class="num_pages">Number of Pages: <strong>2</strong></p>
-                    <p class="paper_size">Paper Size: <strong>A4</strong></p>
-                    <p class="colored">Color: <strong>Colored</strong></p>
+                    <p class="num_pages">Number of Pages: <strong><%= t.number_pages || "None specified." %></strong></p>
+                    <p class="paper_size">Paper Size: <strong><%= t.paper_size || "None specified." %></strong></p>
+                    <p class="colored">Color: <strong><%= t.color_settings || "None specified." %></strong></p>
                     </br>
                     <p class="additional"><strong>Additional Specifications:</strong></p>
 
-                    <ul class= "">The number of pages, paper size, color, and additional specifications are not dynamic yet</ul>
+                    <ul class= ""><%= t.additional_specs || "None." %></ul>
                   </div>
                   <div class="ui segment">
                     <div id="outer">
