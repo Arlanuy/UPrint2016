@@ -92,7 +92,7 @@ class TransactionsController < ApplicationController
     else
       #redirect_to '/errors/missing_file'
       flash[:alert] = "File missing."
-      redirect_to root_path
+      redirect_to root_path and return
     end
   end
 
