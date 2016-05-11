@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160508114250) do
     t.float    "price",             null: false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.datetime "date_printed"
     t.string   "paper_size"
     t.string   "color_settings"
     t.text     "additional_specs"

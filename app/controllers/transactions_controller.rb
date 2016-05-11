@@ -73,7 +73,7 @@ class TransactionsController < ApplicationController
   def destroy
     # For both? When rejecting (shop) or cancelling (student) a transaction
     if shop_signed_in?
-      @transaction = current_shop.transactions.find(params[:id])
+      @transaction = current_shop.transactions.find(params[:t_id])
     else
       @transaction = current_student.transaction.find(params[:id])
     end
