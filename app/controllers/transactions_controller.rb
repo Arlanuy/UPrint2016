@@ -19,6 +19,7 @@ class TransactionsController < ApplicationController
         "Gray Scale" => @shop.price_grey
       }
       @transaction_data[:price] = @prices[@transaction_data[:color_settings]] * @transaction_data[:number_pages].to_i
+      #@transaction_data[:price] = 100
       #@transaction = Transaction.create(@transaction_data)
       @transaction = current_student.transactions.create(@transaction_data)
       if @shop.transactions << @transaction
@@ -100,6 +101,7 @@ class TransactionsController < ApplicationController
     if shop_signed_in?
       @transaction = current_shop.transactions.find(params[:id])
       @transaction.update(date_printed: Time.now)
+      File.delete(@transaction.file.path)
       redirect_to root_path
     end
   end
