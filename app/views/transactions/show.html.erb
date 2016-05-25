@@ -1,14 +1,14 @@
 <h1>SHOWING TRANSACTION</h1>
 <h3>Just dumping this here</h3>
 Shop: <%= @shop.shop_name %> <br>
-Date sent: <%= @transaction.date_sent %> <br>
+Date sent: <%= @transaction.date_sent.in_time_zone("Singapore") %> <br>
 Paper size: <%= @transaction.paper_size %> <br>
 Color settings: <%= @transaction.color_settings %> <br>
 Additional specs: <%= @transaction.additional_specs %> <br>
 File: <%= link_to @transaction.file_file_name + " (click to download)", download_path(@shop.id, @transaction.id) %> <br>
 <br>
 
-Price: <%= "#{'%.02f' % @price_per_page}" %> * <%= @transaction.number_pages %> = <b><%= "#{'%.02f' % (@transaction.price)}" %><b><br>
+Price: <%= "#{'%.02f' % @price_per_page}" %> * <%= @transaction.number_pages %> = <b><%= "#{'%.02f' % (@transaction.price)}" %></b><br>
 <% if @transaction.date_downloaded.nil? %>
   Not yet downloaded
 <% else %>
@@ -17,5 +17,6 @@ Price: <%= "#{'%.02f' % @price_per_page}" %> * <%= @transaction.number_pages %> 
 <% if @transaction.date_printed.nil? %>
   Not yet printed
 <% else %>
-  Already printed
+  Already printed<br>
+  Date printed: <%= @transaction.date_printed.in_time_zone("Singapore") %>
 <% end %> <br>

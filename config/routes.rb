@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   post 'shops/:shop_id/transactions/:id/paid' => 'transactions#paid', :as => :paid
 
   match 'shops/:s_id/transactions/:t_id/destroy' => 'transactions#destroy', :as => :destroy_transaction, :via => :get
->>>>>>> destroy-transaction:uprint/config/routes.rb
+#>>>>>>> destroy-transaction:uprint/config/routes.rb
 
   #get 'students/:id' => 'students#show', as: :student
   #get 'students/:id/edit' => 'students#edit', as: :edit_student
