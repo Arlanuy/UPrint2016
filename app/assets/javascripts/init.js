@@ -46,6 +46,16 @@ function flipOver() {
 	else $('#flip').html('Login');
 }
 
+function signInStudent(){
+	$('#signin-student').css("display", "block");
+	$('#signin-shop').css("display", "none");
+}
+
+function signInShop(){
+	$('#signin-shop').css("display", "block");
+	$('#signin-student').css("display", "none");
+}
+
 function signUpStudent(){
 	$('#email-label').text('UP Webmail');
 	$('#email-input').prop("placeholder", "UP Webmail");

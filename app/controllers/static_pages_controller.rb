@@ -1,16 +1,28 @@
 class StaticPagesController < ApplicationController
-  helper_method :resource_name, :resource, :devise_mapping
+  helper_method :student_resource_name, :student_resource, :shop_resource_name, :shop_resource, :resource, :resource_name
 
-  def resource_name
+  def student_resource_name
     :student
   end
 
-  def resource
+  def student_resource
     @resource ||= Student.new
   end
 
-  def devise_mapping
-    @devise_mapping ||= Devise.mappings[:student]
+  def shop_resource_name
+    :student
+  end
+
+  def shop_resource
+    @resource ||= Student.new
+  end
+
+  def resource_name
+    nil
+  end
+
+  def resource
+    nil
   end
 
   def landing

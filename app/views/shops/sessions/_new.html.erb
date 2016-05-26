@@ -1,6 +1,6 @@
-<%= form_for(resource || student_resource, as: resource_name || student_resource_name, url: session_path(resource_name ||student_resource_name), html: { class: 'ui form form-padding'}) do |f| %>
+<%= form_for(resource || shop_resource, as: resource_name || shop_resource_name, url: session_path(resource_name || shop_resource_name), html: { class: 'ui form form-padding'}) do |f| %>
   <div class="field">
-    <label>Student Email</label><br />
+    <label>Shop Email</label><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
