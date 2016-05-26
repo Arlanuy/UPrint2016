@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   get 'transactions/destroy'
 
   devise_for :shops, :controllers => { :registrations => "shops/registrations", :sessions => "shops/sessions" }
-  #devise_for :shops
-  #patch '/shops/edit' => 'shops/registrations#update'
   devise_for :students, :controllers => { :registrations => "students/registrations" }
 
   resources :shops, :only => [:show, :index] do
@@ -36,9 +34,6 @@ Rails.application.routes.draw do
   post 'shops/:shop_id/transactions/:id/paid' => 'transactions#paid', :as => :paid
 
   match 'shops/:s_id/transactions/:t_id/destroy' => 'transactions#destroy', :as => :destroy_transaction, :via => :get
-
-  #get 'students/:id' => 'students#show', as: :student
-  #get 'students/:id/edit' => 'students#edit', as: :edit_student
 
   # Toggle availability
   match 'shops/available' => 'shops#toggle_availability', :as => :toggle_availability, :via => :post
