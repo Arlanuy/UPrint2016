@@ -35,7 +35,17 @@
 						</div>
 						<div class="active side">
 							<div class="ui card">
-								<%= render "students/sessions/new" %>
+                <div class="ui buttons in-button-shape top attached">
+                  <button class="ui button in-button-shape" onclick="signInStudent()">Student</button>
+                  <div class="or"></div>
+                  <button class="ui button in-button-shape" onclick="signInShop()">Shop</button>
+                </div>
+                <div id="signin-student">
+                  <%= render "students/sessions/new" %>
+                </div>
+                <div id="signin-shop" style="display: none">
+                  <%= render "shops/sessions/new" %>
+                </div>
 								<!-- <form class="ui form form-padding">
 									<div class="field">
 										<label>Email</label>

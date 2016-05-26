@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   post 'shops/:shop_id/transactions/:id/printed' => 'transactions#printed', :as => :printed
   post 'shops/:shop_id/transactions/:id/paid' => 'transactions#paid', :as => :paid
 
+  match 'shops/:s_id/transactions/:t_id/destroy' => 'transactions#destroy', :as => :destroy_transaction, :via => :get
+
   #get 'students/:id' => 'students#show', as: :student
   #get 'students/:id/edit' => 'students#edit', as: :edit_student
 
