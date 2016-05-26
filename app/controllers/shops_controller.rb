@@ -12,7 +12,6 @@ class ShopsController < ApplicationController
       @transactions = current_student.transactions.last(5)
     end
     @shops.each do |s|
-      #s.queue_status = s.transactions.count(:date_paid => nil)
       s.queue_status = s.transactions.where(:date_printed => nil).count
     end
   end
@@ -22,7 +21,6 @@ class ShopsController < ApplicationController
     if shop_signed_in?
     @transactions = current_shop.transactions.all
     end
-    #@queue = Shop.find(params[:id]).transactions.count(:conditions => "date_paid == NULL")
     @queue = Shop.find(params[:id]).transactions.where(:date_printed => nil).count
   end
 
@@ -55,8 +53,8 @@ class ShopsController < ApplicationController
                                     :email,
                                     :contact_number,
                                     :price_blwt,
-									:price_grey,
-									:price_colr,
+                  :price_grey,
+                  :price_colr,
                                     :password,
                                     :password_confirmation)
     end

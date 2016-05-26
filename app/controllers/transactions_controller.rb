@@ -19,8 +19,6 @@ class TransactionsController < ApplicationController
         "Gray Scale" => @shop.price_grey
       }
       @transaction_data[:price] = @prices[@transaction_data[:color_settings]] * @transaction_data[:number_pages].to_i
-      #@transaction_data[:price] = 100
-      #@transaction = Transaction.create(@transaction_data)
       @transaction = current_student.transactions.create(@transaction_data)
       if @shop.transactions << @transaction
         redirect_to transaction_path(@shop.id, @transaction.id)
@@ -122,10 +120,10 @@ class TransactionsController < ApplicationController
 # To be discussed
 =begin
   def destroy
-  	@shop = Shop.find(params[:id])
-  	@transaction = @shop.transaction.find(params[:id])
-  	@transaction.destroy
-  	redirect_to shop_path(@shop)
+    @shop = Shop.find(params[:id])
+    @transaction = @shop.transaction.find(params[:id])
+    @transaction.destroy
+    redirect_to shop_path(@shop)
   end
 >>>>>>> 042ccb0a7cf0c9915f2f83a14c9e6e6883ca9a4c
 =end

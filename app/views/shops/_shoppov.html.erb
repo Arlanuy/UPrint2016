@@ -154,8 +154,8 @@
                   </div>
                   <div class="ui segment">
                     <div class="two ui buttons" id="outer">
-                      <%= link_to "Download", download_path(current_shop.id, t.id), class: "ui green button active", id: "outer" %>
-                      <%= link_to "Cancel", destroy_transaction_url(current_shop.id, t.id), confirm: 'Are you sure?', class: "ui red button active", id: "inner" %>
+                      <%= link_to "Download", download_path(current_shop.id, t.id), class: "ui green button active" %>
+                      <%= link_to "Cancel", destroy_transaction_url(current_shop.id, t.id), confirm: 'Are you sure?', class: "ui red button active" %>
                     </div>
                   </div>
                 </div>
