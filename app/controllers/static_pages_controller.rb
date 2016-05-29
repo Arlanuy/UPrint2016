@@ -6,15 +6,15 @@ class StaticPagesController < ApplicationController
   end
 
   def student_resource
-    @resource ||= Student.new
+    Student.new
   end
 
   def shop_resource_name
-    :student
+    :shop
   end
 
   def shop_resource
-    @resource ||= Student.new
+    Shop.new
   end
 
   def resource_name
