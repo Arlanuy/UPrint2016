@@ -108,6 +108,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.2)
+    puma (3.4.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -187,6 +188,7 @@ DEPENDENCIES
   mailcatcher
   paperclip
   pg
+  puma
   rails (= 4.2.3)
   semantic-ui-sass!
   spring

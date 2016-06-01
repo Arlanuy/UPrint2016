@@ -7,6 +7,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'turbolinks'
 gem 'devise'
 gem 'paperclip'
+gem 'puma'
 
 # Front end gems
 gem 'jquery-rails'
