@@ -78,7 +78,7 @@
 					<div class="ui statistics tiny">
 						<div class="ui statistic tiny inverted ">
 							<div class="value">
-								5,550
+                <%= Student.count %>
 							</div>
 							<div class="label">
 								Students Registered
@@ -86,7 +86,7 @@
 						</div>
 						<div class="ui statistic tiny inverted">
 							<div class="value">
-								12,515
+                <%= Transaction.count(:date_paid) %>
 							</div>
 							<div class="label">
 								Transactions Completed
@@ -94,7 +94,7 @@
 						</div>
 						<div class="ui statistic tiny inverted">
 							<div class="value">
-								25
+                <%= Shop.count %>
 							</div>
 							<div class="label">
 								Shops Registered
