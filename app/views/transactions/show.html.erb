@@ -15,12 +15,16 @@
   <% if @transaction.date_downloaded.nil? %>
     Not yet downloaded
   <% else %>
-    Already downloaded
+    Date downloaded: <%= @transaction.date_downloaded.in_time_zone("Singapore") %>
   <% end %> <br>
   <% if @transaction.date_printed.nil? %>
     Not yet printed
   <% else %>
-    Already printed<br>
     Date printed: <%= @transaction.date_printed.in_time_zone("Singapore") %>
+  <% end %> <br>
+  <% if @transaction.date_paid.nil? %>
+    Not yet paid
+  <% else %>
+    Date paid: <%= @transaction.date_paid.in_time_zone("Singapore") %>
   <% end %> <br>
 </div>
