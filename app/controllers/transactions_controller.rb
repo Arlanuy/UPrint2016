@@ -18,7 +18,7 @@ class TransactionsController < ApplicationController
         "Black and White" => @shop.price_blwt,
         "Gray Scale" => @shop.price_grey
       }
-      @transaction_data[:price] = @prices[@transaction_data[:color_settings]] * @transaction_data[:number_pages].to_i
+      @transaction_data[:price] = @prices[@transaction_data[:color_settings]] * @transaction_data[:number_pages].to_i * @transaction_data[:number_copies].to_i
       @transaction = current_student.transactions.create(@transaction_data)
       if @shop.transactions << @transaction
         redirect_to transaction_path(@shop.id, @transaction.id)
@@ -114,7 +114,7 @@ class TransactionsController < ApplicationController
 
   private
   def transaction_params
-    params.require(:transaction).permit(:number_pages, :paper_size, :color_settings, :additional_specs, :file)
+    params.require(:transaction).permit(:number_pages, :number_copies, :paper_size, :color_settings, :additional_specs, :file)
   end
 
 # To be discussed

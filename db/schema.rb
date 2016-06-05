@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160508114250) do
+ActiveRecord::Schema.define(version: 20160605115811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20160508114250) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.integer  "number_pages"
+    t.integer  "number_copies"
   end
 
 end

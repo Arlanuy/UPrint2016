@@ -130,9 +130,16 @@
         <h1>Order Form</h1>
       </div>
       <%= form_for(@transaction, url: create_transaction_path(@shop.id, @transaction), html: { class: 'ui teal segment fluid form', id: 'form'}) do |f| %>
-        <div class = "field">
-          <label>Number of Pages</label>
-          <%= f.number_field :number_pages %>
+        <div class = "ui two column grid">
+          <div class = "column field">
+            <label>Number of Pages</label>
+            <%= f.number_field :number_pages %>
+          </div>
+
+          <div class = "column field">
+            <label>Number of Copies</label>
+            <%= f.number_field :number_copies, value: 1 %>
+          </div>
         </div>
 
         <div class = "field" >
@@ -186,7 +193,7 @@
 
         <div class="field">
           <label>Additional Specifications</label>
-          <%= f.text_area(:additional_specs, :rows => 4, :placeholder => "shit") %>
+          <%= f.text_area(:additional_specs, :rows => 4, :placeholder => "") %>
         </div>
 
         </br>
