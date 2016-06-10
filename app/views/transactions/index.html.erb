@@ -22,161 +22,39 @@
     <div class="ui grid relaxed two column">
       <div class="column">
         <div class="ui relaxed divided list">
+          <% @transactions.each do |t| %>
           <div class="item">
-            <i class="large check circle outline icon"></i>
+            <% if !t.date_downloaded || !t.date_printed %>
+              <i class="large wait icon"></i>
+            <% elsif !t.date_paid %>
+              <i class="large check circle outline icon"></i>
+            <% else %>
+              <i class="large check circle icon"></i>
+            <% end %>
             <div class="content">
-              <a class="header">Order #1234</a>
+              <a class="header">Order #<%= t.id %></a>
               <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Ready to be claimed since yesterday.
+                <%= t.file_file_name %>
+                from
+                <a><%= Shop.find(t.shop_id).shop_name %></a>
+                <% if !t.date_downloaded %>
+                  Pending download.
+                <% elsif !t.date_printed %>
+                  Pending printing.
+                <% elsif !t.date_paid %>
+                  Pending payment.
+                <% else %>
+                  Already paid.
+                <% end %>
               </div>
             </div>
           </div>
-          <div class="item">
-            <i class="large check circle outline icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Ready to be claimed since yesterday.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large check circle outline icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Ready to be claimed since yesterday.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large check circle outline icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Ready to be claimed since yesterday.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large check circle outline icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Ready to be claimed since yesterday.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large wait icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Pending since January 21, 2016.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large wait icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Pending since January 21, 2016.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large wait icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Pending since January 21, 2016.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large wait icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Pending since January 21, 2016.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large wait icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Pending since January 21, 2016.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large wait icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Pending since January 21, 2016.
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
       <div class="ui vertical divider">:</div>
       <div class="column">
         <div class="ui relaxed divided list">
-          <div class="item">
-            <i class="large check circle icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Claimed today.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large check circle icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Claimed today.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large check circle icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Claimed today.
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large check circle icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Claimed today.
-              </div>
-            </div>
-          </div>
           <div class="item">
             <i class="large check circle icon"></i>
             <div class="content">

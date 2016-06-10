@@ -103,7 +103,6 @@ ActiveRecord::Schema.define(version: 20160605115811) do
     t.float    "price",             null: false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.datetime "date_printed"
     t.string   "paper_size"
     t.string   "color_settings"
     t.text     "additional_specs"
@@ -111,6 +110,7 @@ ActiveRecord::Schema.define(version: 20160605115811) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.datetime "date_printed"
     t.integer  "number_pages"
     t.integer  "number_copies"
   end
