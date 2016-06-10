@@ -97,9 +97,9 @@
           <h1 class = "heading-title">Prices (per page)</h1>
         </div>
         <div class="ui teal segment" id = "info">
-          <li class = "question">Black and white: <strong>P<%= number_with_precision(@shop.price_blwt, :precision => 2) || "Not indicated." %></strong></li>
-          <li class = "question">Colored: <strong>P<%= number_with_precision(@shop.price_colr, :precision => 2) || "Not indicated." %></strong></li>
-          <li class = "question">Greyscale: <strong>P<%= number_with_precision(@shop.price_grey, :precision => 2) || "Not indicated." %></strong></li>
+          <li class = "question">Black and white: <strong><%= number_with_precision(@shop.price_blwt, :precision => 2) || "Not indicated." %></strong></li>
+          <li class = "question">Colored: <strong><%= number_with_precision(@shop.price_colr, :precision => 2) || "Not indicated." %></strong></li>
+          <li class = "question">Greyscale: <strong><%= number_with_precision(@shop.price_grey, :precision => 2) || "Not indicated." %></strong></li>
         </div>
       </div>
 

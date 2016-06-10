@@ -21,10 +21,11 @@ class TransactionsController < ApplicationController
         "Black and White" => @shop.price_blwt,
         "Gray Scale" => @shop.price_grey
       }
-      @transaction_data[:price] = @prices[@transaction_data[:color_settings]] * @transaction_data[:number_pages].to_i * @transaction_data[:number_copies].to_i
+      @transaction_data[:price_per_page] = @prices[@transaction_data[:color_settings]]
+      @transaction_data[:price] = @transaction_data[:price_per_page] * @transaction_data[:number_pages].to_i * @transaction_data[:number_copies].to_i
       @transaction = current_student.transactions.create(@transaction_data)
       if @shop.transactions << @transaction
-        redirect_to transaction_path(@shop.id, @transaction.id)
+        redirect_to transaction_path(@transaction.id)
       else
         flash[:alert] = "There was some error in input."
         redirect_to somewhere #idk yet but this needs to redirect to (or render) something
@@ -34,24 +35,12 @@ class TransactionsController < ApplicationController
 
   def show
     # For both?; when viewing the details of a transaction
-    @t = Transaction.find(params[:id])
-    if student_signed_in? and current_student.id == @t.student_id
-      @transaction = @t
-      @shop = Shop.find(@transaction.shop_id)
-      @prices = {
-        "Colored" => @shop.price_colr,
-        "Black and White" => @shop.price_blwt,
-        "Gray Scale" => @shop.price_grey
-      }
-      @price_per_page = @prices[@transaction.color_settings]
-    else
-      redirect_to root_path
-    end
+    @transaction = Transaction.find(params[:id])
 
     respond_to do |format|
       format.html
       format.js
-      format.json {render json: @t, status: :selected}
+      format.json {render json: @transaction, status: :selected}
     end
   end
 

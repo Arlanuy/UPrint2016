@@ -43,7 +43,7 @@
   <div class="ui segment">
     <div class="ui center aligned grid padded">
       <!--h3 class="ui header">Transactions</h3-->
-      <h3><%= link_to("Transactions", {:controller => "transactions", :action => "index", :id => current_student.id}, html_options={:class => "ui header"}) %></h3>
+      <h3><%= link_to("Transactions", transactions_path, html_options={:class => "ui header"}) %></h3>
       <div class="ui relaxed divided list">
         <% if @transactions %>
           <% @transactions.each do |t| %>

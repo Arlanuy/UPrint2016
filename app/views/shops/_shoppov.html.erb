@@ -96,6 +96,10 @@
               <h5><i class="phone icon"></i><%= current_shop.contact_number %></h5>
             </div>
           </div>
+          <div class="ui divider"></div>
+          <div class="ui list">
+            <%= link_to "Transactions History", transactions_path, html_options={:class => "ui header"} %>
+          </div>
         </div>
         <% if flash[:alert] %>
         <div class="ui red floating message">
