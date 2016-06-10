@@ -1,0 +1,36 @@
+<b>Transaction #<%= @transaction.id %></b>
+<br>
+<b>Shop:</b> <%= @shop.shop_name %> <br>
+<b>Date sent:</b> <%= @transaction.date_sent.in_time_zone("Singapore") %> <br>
+<b>Number of pages:</b> <%= @transaction.number_pages %> <br>
+<b>Number of copies:</b> <%= @transaction.number_copies %> <br>
+<b>Paper size:</b> <%= @transaction.paper_size %> <br>
+<b>Color settings: </b><%= @transaction.color_settings %> <br>
+<b>Additional specs:</b> <%= @transaction.additional_specs %> <br>
+<% if @transaction.file_file_name %>
+  <b>File:</b> <%= link_to @transaction.file_file_name + " (click to download)", download_path(@shop.id, @transaction.id) %> <br>
+<% else %>
+  <b> No file. </b>
+<% end %>
+<div class="ui divider"></div>
+
+<% if @transaction.price and @transaction.number_copies and @transaction.number_pages and @price_per_page %>
+<b>Price:</b> <%= "#{'%.02f' % @price_per_page}" %> * <%= @transaction.number_pages %> * <%= @transaction.number_copies %> = <b><%= "#{'%.02f' % (@transaction.price)}" %></b><br>
+<% else %>
+  <b> No price. </b><br>
+<% end %>
+<% if @transaction.date_downloaded.nil? %>
+  Not yet downloaded
+<% else %>
+  <b>Date downloaded:</b> <%= @transaction.date_downloaded.in_time_zone("Singapore") %>
+<% end %> <br>
+<% if @transaction.date_printed.nil? %>
+  Not yet printed
+<% else %>
+  <b>Date printed:</b> <%= @transaction.date_printed.in_time_zone("Singapore") %>
+<% end %> <br>
+<% if @transaction.date_paid.nil? %>
+  Not yet paid
+<% else %>
+  <b>Date paid:</b> <%= @transaction.date_paid.in_time_zone("Singapore") %>
+<% end %> <br>

@@ -1,10 +1,13 @@
 class TransactionsController < ApplicationController
   def index
-    # For the student
     if student_signed_in?
       @transactions = current_student.transactions.all
+      @transaction = current_student.transactions.last
+      @shop = Shop.find(current_student.transactions.last.shop_id)
     elsif shop_signed_in?
       @transactions = current_shop.transactions.all
+      @transaction = current_shop.transactions.last
+      @shop = current_shop
     end
   end
 
@@ -43,6 +46,12 @@ class TransactionsController < ApplicationController
       @price_per_page = @prices[@transaction.color_settings]
     else
       redirect_to root_path
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+      format.json {render json: @t, status: :selected}
     end
   end
 

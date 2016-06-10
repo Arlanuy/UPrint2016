@@ -32,7 +32,9 @@
               <i class="large check circle icon"></i>
             <% end %>
             <div class="content">
-              <a class="header">Order #<%= t.id %></a>
+              <%= link_to transaction_path(t.shop_id, t.id), remote: true, class: "header" do %>
+                Order #<%= t.id %>
+              <% end %>
               <div class="description">
                 <%= t.file_file_name %>
                 from
@@ -53,21 +55,9 @@
         </div>
       </div>
       <div class="ui vertical divider">:</div>
-      <div class="column">
-        <div class="ui relaxed divided list">
-          <div class="item">
-            <i class="large check circle icon"></i>
-            <div class="content">
-              <a class="header">Order #1234</a>
-              <div class="description">
-                Eng 10 Readings from
-                <a>Shop #1234</a>. Claimed today.
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="ajax-desc" class="column">
+        <%= render "transactions/show" %>
       </div>
     </div>
   </div>
-</div>
 </div>
