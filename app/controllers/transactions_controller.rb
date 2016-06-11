@@ -1,12 +1,12 @@
 class TransactionsController < ApplicationController
   def index
     if student_signed_in?
-      @transactions = current_student.transactions.all
-      @transaction = current_student.transactions.last
+      @transactions = current_student.transactions.all.reverse_order
+      @transaction = @transactions.first
       @shop = Shop.find(current_student.transactions.last.shop_id)
     elsif shop_signed_in?
-      @transactions = current_shop.transactions.all
-      @transaction = current_shop.transactions.last
+      @transactions = current_shop.transactions.all.reverse_order
+      @transaction = @transactions.first
       @shop = current_shop
     end
   end
@@ -28,7 +28,7 @@ class TransactionsController < ApplicationController
         redirect_to transaction_path(@transaction.id)
       else
         flash[:alert] = "There was some error in input."
-        redirect_to somewhere #idk yet but this needs to redirect to (or render) something
+        redirect_to shop_path(params[:id]) #idk yet but this needs to redirect to (or render) something
       end
     end
   end
@@ -96,6 +96,10 @@ class TransactionsController < ApplicationController
   def printed
     if shop_signed_in?
       @transaction = current_shop.transactions.find(params[:id])
+      # Avoid process duplication
+      if @transaction.date_printed
+        redirect_to root_path
+      end
       @transaction.update(date_printed: Time.now)
       File.delete(@transaction.file.path)
       redirect_to root_path

@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   devise_for :shops, :controllers => { :registrations => "shops/registrations", :sessions => "shops/sessions" }
   devise_for :students, :controllers => { :registrations => "students/registrations" }
 
-  resources :shops, :only => [:show, :index] do
-    resources :transactions
-  end
+  resources :shops, :only => [:show, :index]
+  resources :transactions, :only => [:show, :index]
 
   root 'static_pages#landing'
 
@@ -20,8 +19,6 @@ Rails.application.routes.draw do
   get 'students/available/show' => 'students#available'
 
   # Since transactions backend is still not done, these routes are just for show.
-  get 'transactions' => 'transactions#index', as: :transactions
-  get 'transactions/:id' => 'transactions#show', as: :transaction
   get 'shops/:id/transactions/:transaction_id/edit' => 'transactions#edit', as: :edit_transaction
 
   # File upload / download

@@ -65,7 +65,17 @@
           <h5><i class="phone icon"></i><%= current_student.contact_number %></h5>
         </div>
       </div>
-  	</div>
+    </div>
+    <% if flash[:alert] %>
+    <div class="ui red floating message">
+      <p><%= flash[:alert] %></p>
+    </div>
+    <% end %>
+    <% if flash[:notice] %>
+    <div class="ui green floating message">
+      <p><%= flash[:notice] %></p>
+    </div>
+    <% end %>
   </div>
 
 
@@ -123,6 +133,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   <div class = "column " id = "wrapper" style="text-align: center">
     <div class="ui raised segments" style: "">
