@@ -1,84 +1,70 @@
- <div class="ui grid" style="margin-left: auto; margin-right: auto">
+<div class="ui grid" style="margin-left: auto; margin-right: auto">
   <div class="four wide column">
-    <div class="ui segment">
-      <h2 class="ui header">
-      <%= link_to(current_student.name, edit_student_registration_path) %>
-      <div class="sub header"><%= current_student.student_number %></div>
-      </h2>
-      <div class="ui divider"></div>
-      <div class="ui list">
-        <div class="item">
-          <h5><i class="mail icon"></i><%= current_student.email %></h5>
-        </div>
-        <div class="item">
-          <h5><i class="phone icon"></i><%= current_student.contact_number %></h5>
-        </div>
-      </div>
+    <%= render "layouts/usercard" %>
   </div>
-</div>
-<div class="eight wide column">
-  <div class="ui segment padded">
-    <h1 class="ui header centered">Shops</h1>
-    <div class="ui divider"></div>
-    <div class="ui three stackable cards">
-      <% @shops.each do |shop| %>
-        <%= link_to(shop, html_options={:class => "card"}) do %>
+  <div class="eight wide column">
+    <div class="ui segment padded">
+      <h1 class="ui header centered">Shops</h1>
+      <div class="ui divider"></div>
+      <div class="ui three stackable cards">
+        <% @shops.each do |shop| %>
+          <%= link_to(shop, html_options={:class => "card"}) do %>
           <div class="content">
-            <div class="header"><%= shop.shop_name %>
-            <% if shop.is_available %>
+          <div class="header"><%= shop.shop_name %>
+          <% if shop.is_available %>
               <i class="tiny circle icon green"></i>
-            <% else %>
+          <% else %>
               <i class="tiny circle icon red"></i>
-            <% end %>
-            </div>
-            <div class="ui divider"></div>
-            <div class="description">Located at: <%= shop.location %><br>Queue: <%= shop.queue_status%></div>
+          <% end %>
           </div>
-        <% end %>
+          <div class="ui divider"></div>
+          <div class="description">Located at: <%= shop.location %><br>Queue: <%= shop.queue_status%></div>
+        </div>
       <% end %>
+      <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="four wide column">
-  <div class="ui segment">
-    <div class="ui center aligned grid padded">
-      <!--h3 class="ui header">Transactions</h3-->
-      <h3><%= link_to("Transactions", transactions_path, html_options={:class => "ui header"}) %></h3>
-      <div class="ui relaxed divided list">
-        <% if @transactions %>
-          <% @transactions.each do |t| %>
+  <div class="four wide column">
+    <div class="ui segment">
+      <div class="ui center aligned grid padded">
+        <!--h3 class="ui header">Transactions</h3-->
+        <h3><%= link_to("Transactions", transactions_path, html_options={:class => "ui header"}) %></h3>
+        <div class="ui relaxed divided list">
+          <% if @transactions %>
+            <% @transactions.each do |t| %>
             <div class="item">
-              <% if t.date_downloaded != nil %>
-                <% if t.date_paid == nil %>
-                  <i class="large check circle outline icon"></i>
-                <% else %>
-                  <i class="large check circle icon"></i>
-                <% end %>
-              <% else %>
-                <i class="large wait icon"></i>
+            <% if t.date_downloaded != nil %>
+              <% if t.date_paid == nil %>
+              <i class="large check circle outline icon"></i>
+          <% else %>
+              <i class="large check circle icon"></i>
+          <% end %>
+          <% else %>
+              <i class="large wait icon"></i>
+          <% end %>
+            <div class="content">
+              <a class="header">Order #<%= t.id %></a>
+              <div class="description">
+                File for
+                <%= link_to shop_path(t.shop_id) do %>
+                  <%= Shop.find(t.shop_id).shop_name %>.
               <% end %>
-              <div class="content">
-                <a class="header">Order #<%= t.id %></a>
-                <div class="description">
-                  File for
-                  <%= link_to shop_path(t.shop_id) do %>
-                    <%= Shop.find(t.shop_id).shop_name %>.
-                  <% end %>
-                  <% if t.date_downloaded != nil %>
-                    <% if t.date_paid == nil %>
-                      Ready to be claimed.
-                    <% else %>
-                      Paid for already.
-                    <% end %>
-                  <% end %>
-                </div>
+                <% if t.date_downloaded != nil %>
+                  <% if t.date_paid == nil %>
+                  Ready to be claimed.
+              <% else %>
+                  Paid for already.
+              <% end %>
+              <% end %>
               </div>
             </div>
-          <% end %>
-        <% else %>
-          <p>No transactions!</p>
+          </div>
         <% end %>
-        <!--div class="item">
+        <% else %>
+            <p>No transactions!</p>
+        <% end %>
+          <!--div class="item">
           <i class="large check circle icon"></i>
           <div class="content">
             <a class="header">Order #1234</a>
@@ -105,8 +91,8 @@
             </div>
           </div>
         </div-->
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>

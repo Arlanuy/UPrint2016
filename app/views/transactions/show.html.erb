@@ -1,31 +1,3 @@
 <div class="ui segment" style="max-width: 400px; margin: 0px 60px;">
-  <%# <h1>Transaction Info</h1> %>
-  <%# <div class="ui divider"></div> %>
-  <%# <b>Shop:</b> <%= Shop.find(@transaction.shop_id).shop_name %1> <br> %>
-  <%# <b>Date sent:</b> <%= @transaction.date_sent.in_time_zone("Singapore") %1> <br> %>
-  <%# <b>Number of pages:</b> <%= @transaction.number_pages %1> <br> %>
-  <%# <b>Number of copies:</b> <%= @transaction.number_copies %1> <br> %>
-  <%# <b>Paper size:</b> <%= @transaction.paper_size %1> <br> %>
-  <%# <b>Color settings: </b><%= @transaction.color_settings %1> <br> %>
-  <%# <b>Additional specs:</b> <%= @transaction.additional_specs %1> <br> %>
-  <%# <b>File:</b> <%= link_to @transaction.file_file_name + " (click to download)", download_path(@transaction.shop_id, @transaction.id) %1> <br> %>
-  <%# <div class="ui divider"></div> %>
-
-  <%# <b>Price:</b> <%= "#{'%.02f' % @transaction.price_per_page}" %1> * <%= @transaction.number_pages %1> * <%= @transaction.number_copies %1> = <b><%= "#{'%.02f' % (@transaction.price)}" %1></b><br> %>
-  <%# <% if @transaction.date_downloaded.nil? %1> %>
-  <%#   Not yet downloaded %>
-  <%# <% else %1> %>
-  <%#   <b>Date downloaded:</b> <%= @transaction.date_downloaded.in_time_zone("Singapore") %1> %>
-  <%# <% end %1> <br> %>
-  <%# <% if @transaction.date_printed.nil? %1> %>
-  <%#   Not yet printed %>
-  <%# <% else %1> %>
-  <%#   <b>Date printed:</b> <%= @transaction.date_printed.in_time_zone("Singapore") %1> %>
-  <%# <% end %1> <br> %>
-  <%# <% if @transaction.date_paid.nil? %1> %>
-  <%#   Not yet paid %>
-  <%# <% else %1> %>
-  <%#   <b>Date paid:</b> <%= @transaction.date_paid.in_time_zone("Singapore") %1> %>
-  <%# <% end %1> <br> %>
   <%= render "show" %>
 </div>

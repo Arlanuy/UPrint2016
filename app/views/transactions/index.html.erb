@@ -1,67 +1,52 @@
 <div class="ui grid" style="margin-left: auto; margin-right: auto">
   <div class="four wide column">
-    <div class="ui segment">
-      <% if student_signed_in? %>
-      <h2 class="ui header">
-      <%= link_to(current_student.name, edit_student_registration_path) %>
-      <div class="sub header"><%= current_student.student_number %></div>
-      </h2>
-      <div class="ui divider"></div>
-      <div class="ui list">
-        <div class="item">
-          <h5><i class="mail icon"></i><%= current_student.email %></h5>
-        </div>
-        <div class="item">
-          <h5><i class="phone icon"></i><%= current_student.contact_number %></h5>
-        </div>
-      </div>
-      <% end %>
+    <%= render "layouts/usercard" %>
   </div>
-</div>
-<div class="twelve wide column">
-  <div class="ui segment">
-    <div class="ui grid relaxed two column">
-      <div class="column">
-        <h2 class="ui header">Transactions</h2>
-        <div class="ui relaxed divided list">
-          <% @transactions.each do |t| %>
-          <div class="item">
-            <% if !t.date_downloaded || !t.date_printed %>
-              <i class="large wait icon"></i>
+  <div class="twelve wide column">
+    <div class="ui segment">
+      <div class="ui grid relaxed two column">
+        <div class="column">
+          <h2 class="ui header">Transactions</h2>
+          <div class="ui relaxed divided list">
+            <% @transactions.each do |t| %>
+              <div class="item">
+              <% if !t.date_downloaded || !t.date_printed %>
+                <i class="large wait icon"></i>
             <% elsif !t.date_paid %>
-              <i class="large check circle outline icon"></i>
+                <i class="large check circle outline icon"></i>
             <% else %>
-              <i class="large check circle icon"></i>
+                <i class="large check circle icon"></i>
             <% end %>
-            <div class="content">
-              <%= link_to transaction_path(t.id), remote: true, class: "header" do %>
-                Order #<%= t.id %>
+              <div class="content">
+                <%= link_to transaction_path(t.id), remote: true, class: "header" do %>
+                  Order #<%= t.id %>
+            <% end %>
+                <div class="description">
+                  <%= t.file_file_name %>
+                  <% if student_signed_in? %>
+                    to <%= link_to Shop.find(t.shop_id).shop_name, Shop.find(t.shop_id) %>
+              <% else %>
+                    from <%= Student.find(t.student_id).name %>
               <% end %>
-              <div class="description">
-                <%= t.file_file_name %>
-                <% if student_signed_in? %>
-                  to <%= link_to Shop.find(t.shop_id).shop_name, Shop.find(t.shop_id) %>
-                <% else %>
-                  from <%= Student.find(t.student_id).name %>
-                <% end %>
-                <% if !t.date_downloaded %>
-                  Pending download.
+                  <% if !t.date_downloaded %>
+                    Pending download.
                 <% elsif !t.date_printed %>
-                  Pending printing.
+                    Pending printing.
                 <% elsif !t.date_paid %>
-                  Pending payment.
+                    Pending payment.
                 <% else %>
-                  Already paid.
+                    Already paid.
                 <% end %>
+                </div>
               </div>
             </div>
-          </div>
           <% end %>
+          </div>
         </div>
-      </div>
-      <div class="ui vertical divider">:</div>
-      <div id="ajax-desc" class="column">
-        <%= render "transactions/show" %>
+        <div class="ui vertical divider">:</div>
+        <div id="ajax-desc" class="column">
+          <%= render "transactions/show" %>
+        </div>
       </div>
     </div>
   </div>
