@@ -45,31 +45,19 @@
                 <div id="signin-shop" style="display: none">
                   <%= render "shops/sessions/new" %>
                 </div>
-                <!-- <form class="ui form form-padding">
-                  <div class="field">
-                    <label>Email</label>
-                    <input type="email" name="email" placeholder="Email">
-                  </div>
-                  <div class="field">
-                    <label>Password</label>
-                    <input type="password" name="password" placeholder="Password">
-                  </div>
-                  <button class="ui button" type="submit">Login</button>
-                </form> -->
               </div>
             </div>
             <% if student_signed_in? %>
               <%= link_to "Awkward Student Sign Out Button", destroy_student_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
-          <% elsif shop_signed_in? %>
+            <% elsif shop_signed_in? %>
               <%= link_to "Awkward Shop Sign Out Button", destroy_shop_session_path, method: :delete, role: "button", class: "ui button in-button-shape" %>
-          <% end %>
+            <% end %>
             <% if flash[:alert] %>
               <div class="ui negative message"><p><%= flash[:alert] %></p></div>
-          <% end %>
+            <% end %>
           </div>
         </div>
         <div class="sixteen wide column" style="margin-top: 1rem;">
-          <!-- <button class="ui button in-button-shape" id="flip" onclick="flipOver()">Sign up</button> -->
         </div>
       </div>
       <div class="row centered stackable mobile hidden bottomPagePart">
@@ -108,43 +96,6 @@
 <div class="ui modal small" id="studentModal">
   <div class="header">Sign up as Student</div>
   <div class="content">
-    <!--form class="ui form form-padding">
-      <div class="fields">
-        <div class="five wide field">
-          <label>First name</label>
-          <input type="text" name="first_name" placeholder="Juan">
-        </div>
-        <div class="six wide field">
-          <label>Last Name</label>
-          <input type="text" name="last_name" placeholder="Dela Cruz">
-        </div>
-        <div class="five wide field">
-          <label>Student Number</label>
-          <input type="text" name="student_number" placeholder="201512345">
-        </div>
-      </div>
-      <div class="fields">
-        <div class="eight wide field">
-          <label>UP Webmail</label>
-          <input type="email" name="email" placeholder="UP Webmail" id="email-input-modal">
-        </div>
-        <div class="eight wide field centered">
-          <label>Contact Number</label>
-          <input type="text" name="contact_number" placeholder="09061234567">
-        </div>
-      </div>
-      <div class="fields">
-        <div class="eight wide field">
-          <label>Password</label>
-          <input type="password" name="password" placeholder="Password" id="password-input-modal">
-        </div>
-        <div class="eight wide field">
-          <label>Confirm Password</label>
-          <input type="password" name="password-confirmation" placeholder="Confirm Password">
-        </div>
-      </div>
-      <button class="ui button">Sign up</button>
-    </form-->
     <%= render "students/registrations/new" %>
   </div>
 </div>

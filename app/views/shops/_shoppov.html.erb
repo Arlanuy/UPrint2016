@@ -58,29 +58,24 @@ p{
 {
   display: inline-block;
 }
-
-
-
 </style>
-
 </head>
 
 <body style = "padding-bottom: 300px;">
 <div class = "pusher">
   <div class = "ui four column grid container">
-
     <div class="column">
       <%= render "layouts/usercard" %>
       <% if flash[:alert] %>
         <div class="ui red floating message">
         <p><%= flash[:alert] %></p>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
       <% if flash[:notice] %>
         <div class="ui green floating message">
         <p><%= flash[:notice] %></p>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
     </div>
 
     <div class="column">
@@ -88,31 +83,31 @@ p{
         <h1>For Downloading</h1>
         <% if @transactions %>
           <% @transactions.each do |t| %>
-          <% if !(t.date_downloaded) %>
-          <% s = Student.find(t.student_id) %>
-        <div class = "ui segments">
-          <div class="ui segment">
-            <p class="transaction number">Transaction Number: <strong><%= t.id %></strong> </p>
-            <p class="username">Username: <strong><%= s.name %></strong></p>
-            <p class="contact num">Contact number: <strong><%= s.contact_number %></strong></p>
-            <p class="num_pages">Number of Pages: <strong><%= t.number_pages || "None specified." %></strong></p>
-            <p class="paper_size">Paper Size: <strong><%= t.paper_size || "None specified." %></strong></p>
-            <p class="colored">Color: <strong><%= t.color_settings || "None specified." %></strong></p>
-            </br>
-            <p class="additional"><strong>Additional Specifications:</strong></p>
+            <% if !(t.date_downloaded) %>
+              <% s = Student.find(t.student_id) %>
+              <div class = "ui segments">
+                <div class="ui segment">
+                  <p class="transaction number">Transaction Number: <strong><%= t.id %></strong> </p>
+                  <p class="username">Username: <strong><%= s.name %></strong></p>
+                  <p class="contact num">Contact number: <strong><%= s.contact_number %></strong></p>
+                  <p class="num_pages">Number of Pages: <strong><%= t.number_pages || "None specified." %></strong></p>
+                  <p class="paper_size">Paper Size: <strong><%= t.paper_size || "None specified." %></strong></p>
+                  <p class="colored">Color: <strong><%= t.color_settings || "None specified." %></strong></p>
+                  </br>
+                  <p class="additional"><strong>Additional Specifications:</strong></p>
 
-            <ul class= ""><%= t.additional_specs || "None." %></ul>
-          </div>
-          <div class="ui segment">
-            <div class="two ui buttons" id="outer">
-              <%= link_to "Download", download_path(current_shop.id, t.id), class: "ui green button active" %>
-              <%= link_to "Cancel", destroy_transaction_url(current_shop.id, t.id), confirm: 'Are you sure?', class: "ui red button active" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      <% end %>
-      <% end %>
+                  <ul class= ""><%= t.additional_specs || "None." %></ul>
+                </div>
+                <div class="ui segment">
+                  <div class="two ui buttons" id="outer">
+                    <%= link_to "Download", download_path(current_shop.id, t.id), class: "ui green button active" %>
+                    <%= link_to "Cancel", destroy_transaction_url(current_shop.id, t.id), confirm: 'Are you sure?', class: "ui red button active" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
 
@@ -121,63 +116,64 @@ p{
         <h1>For Printing</h1>
         <% if @transactions %>
           <% @transactions.each do |t| %>
-          <% if t.date_downloaded && !(t.date_printed) %>
-          <% s = Student.find(t.student_id) %>
-        <div class = "ui segments">
-          <div class="ui segment">
-            <p class="transaction number">Transaction Number: <strong><%= t.id %></strong> </p>
-            <p class="username">Username: <strong><%= s.name %></strong></p>
-            <p class="contact num">Contact number: <strong><%= s.contact_number %></strong></p>
-            <p class="num_pages">Number of Pages: <strong><%= t.number_pages || "None specified." %></strong></p>
-            <p class="paper_size">Paper Size: <strong><%= t.paper_size || "None specified." %></strong></p>
-            <p class="colored">Color: <strong><%= t.color_settings || "None specified." %></strong></p>
-            </br>
-            <p class="additional"><strong>Additional Specifications:</strong></p>
+            <% if t.date_downloaded && !(t.date_printed) %>
+              <% s = Student.find(t.student_id) %>
+              <div class = "ui segments">
+                <div class="ui segment">
+                  <p class="transaction number">Transaction Number: <strong><%= t.id %></strong> </p>
+                  <p class="username">Username: <strong><%= s.name %></strong></p>
+                  <p class="contact num">Contact number: <strong><%= s.contact_number %></strong></p>
+                  <p class="num_pages">Number of Pages: <strong><%= t.number_pages || "None specified." %></strong></p>
+                  <p class="paper_size">Paper Size: <strong><%= t.paper_size || "None specified." %></strong></p>
+                  <p class="colored">Color: <strong><%= t.color_settings || "None specified." %></strong></p>
+                  </br>
+                  <p class="additional"><strong>Additional Specifications:</strong></p>
 
-            <ul class= ""><%= t.additional_specs || "None." %></ul>
-          </div>
-          <div class="ui segment">
-            <div class="two ui buttons" id="outer">
-              <%= link_to "Download", download_path(current_shop.id, t.id), class: "ui green button active" %>
-              <%= link_to "Done", printed_path(current_shop.id, t.id), method: :post, class: "ui blue button active" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      <% end %>
-      <% end %>
+                  <ul class= ""><%= t.additional_specs || "None." %></ul>
+                </div>
+                <div class="ui segment">
+                  <div class="two ui buttons" id="outer">
+                    <%= link_to "Download", download_path(current_shop.id, t.id), class: "ui green button active" %>
+                    <%= link_to "Done", printed_path(current_shop.id, t.id), method: :post, class: "ui blue button active" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
+
     <div class="column">
       <div class="ui green raised segment" style="color: #333;"> <!-- style is to fix the weird green coloration -->
         <h1>For Payment</h1>
         <% if @transactions %>
           <% @transactions.each do |t| %>
-          <% if t.date_downloaded && t.date_printed && !(t.date_paid) %>
-          <% s = Student.find(t.student_id) %>
-        <div class = "ui segments">
-          <div class="ui segment">
-            <p class="transaction number">Transaction Number: <strong><%= t.id %></strong> </p>
-            <p class="username">Username: <strong><%= s.name %></strong></p>
-            <p class="contact num">Contact number: <strong><%= s.contact_number %></strong></p>
-            <p class="num_pages">Number of Pages: <strong><%= t.number_pages || "None specified." %></strong></p>
-            <p class="paper_size">Paper Size: <strong><%= t.paper_size || "None specified." %></strong></p>
-            <p class="colored">Color: <strong><%= t.color_settings || "None specified." %></strong></p>
-            </br>
-            <p class="additional"><strong>Additional Specifications:</strong></p>
+            <% if t.date_downloaded && t.date_printed && !(t.date_paid) %>
+              <% s = Student.find(t.student_id) %>
+              <div class = "ui segments">
+                <div class="ui segment">
+                  <p class="transaction number">Transaction Number: <strong><%= t.id %></strong> </p>
+                  <p class="username">Username: <strong><%= s.name %></strong></p>
+                  <p class="contact num">Contact number: <strong><%= s.contact_number %></strong></p>
+                  <p class="num_pages">Number of Pages: <strong><%= t.number_pages || "None specified." %></strong></p>
+                  <p class="paper_size">Paper Size: <strong><%= t.paper_size || "None specified." %></strong></p>
+                  <p class="colored">Color: <strong><%= t.color_settings || "None specified." %></strong></p>
+                  </br>
+                  <p class="additional"><strong>Additional Specifications:</strong></p>
 
-            <ul class= ""><%= t.additional_specs || "None." %></ul>
-          </div>
-          <div class="ui segment">
-            <div id="outer">
-              <%= link_to "Paid", paid_path(current_shop.id, t.id), method: :post, class: "ui red button active", id: "outer" %>
-              <!-- Normally this would have: shop_transaction_path(current_shop.id, t.id), method: :delete, but the record itself doesn't get deleted -->
-            </div>
-          </div>
-        </div>
-      <% end %>
-      <% end %>
-      <% end %>
+                  <ul class= ""><%= t.additional_specs || "None." %></ul>
+                </div>
+                <div class="ui segment">
+                  <div id="outer">
+                    <%= link_to "Paid", paid_path(current_shop.id, t.id), method: :post, class: "ui red button active", id: "outer" %>
+                    <!-- Normally this would have: shop_transaction_path(current_shop.id, t.id), method: :delete, but the record itself doesn't get deleted -->
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

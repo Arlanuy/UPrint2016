@@ -55,15 +55,14 @@ p{
     <% if flash[:alert] %>
       <div class="ui red floating message">
       <p><%= flash[:alert] %></p>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
     <% if flash[:notice] %>
       <div class="ui green floating message">
       <p><%= flash[:notice] %></p>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
   </div>
-
 
   <div class = "column"  style="text-align: center" >
     <div>
@@ -77,16 +76,15 @@ p{
           <p>Status:
           <% if @shop.is_available %>
             <strong class = "green">Online</strong>
-          <i class="check circle icon green"></i>
-        <% else %>
+            <i class="check circle icon green"></i>
+          <% else %>
             <strong class = "red">Offline</strong>
-          <i class="tiny circle icon red"></i>
-        <% end %>
+            <i class="tiny circle icon red"></i>
+          <% end %>
           </p>
           <p>Queue:<strong><%= @queue%></strong></p>
         </div>
       </div>
-
 
       <div class="ui teal raised segments" >
         <div class="ui segment" id = "segment-header">
@@ -128,84 +126,83 @@ p{
       </div>
       <%= form_for(@transaction, url: create_transaction_path(@shop.id, @transaction), html: { class: 'ui teal segment fluid form', id: 'form'}) do |f| %>
         <div class = "ui two column grid">
-        <div class = "column field">
-          <label>Number of Pages</label>
-          <%= f.number_field :number_pages %>
+          <div class = "column field">
+            <label>Number of Pages</label>
+            <%= f.number_field :number_pages %>
+          </div>
+
+          <div class = "column field">
+            <label>Number of Copies</label>
+            <%= f.number_field :number_copies, value: 1 %>
+          </div>
         </div>
 
-        <div class = "column field">
-          <label>Number of Copies</label>
-          <%= f.number_field :number_copies, value: 1 %>
-        </div>
-      </div>
-
-      <div class = "field" >
-        <label> Paper Size </label>
-        <div class="inline fields">
-          <div class="field">
-            <div class="ui radio checkbox">
-              <%= f.radio_button :paper_size, 'A4', :checked => true %>
-              <%= f.label :paper_size, 'A4', :value => 'A4' %>
+        <div class = "field" >
+          <label> Paper Size </label>
+          <div class="inline fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <%= f.radio_button :paper_size, 'A4', :checked => true %>
+                <%= f.label :paper_size, 'A4', :value => 'A4' %>
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <%= f.radio_button :paper_size, 'Short Bond' %>
-              <%= f.label :paper_size, 'Short Bond', :value => 'Short Bond' %>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <%= f.radio_button :paper_size, 'Short Bond' %>
+                <%= f.label :paper_size, 'Short Bond', :value => 'Short Bond' %>
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <%= f.radio_button :paper_size, 'Long Bond' %>
-              <%= f.label :paper_size, 'Long Bond', :value => 'Long Bond' %>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class = "field" >
-        <label> Color Settings </label>
-        <div class="inline fields">
-          <div class="field">
-            <div class="ui radio checkbox">
-              <%= f.radio_button :color_settings, 'Colored', :checked => true %>
-              <%= f.label :color_settings, 'Colored', :value => 'Colored' %>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <%= f.radio_button :color_settings, 'Black and White' %>
-              <%= f.label :color_settings, 'Black and White', :value => 'Black and White' %>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <%= f.radio_button :color_settings, 'Gray Scale' %>
-              <%= f.label :color_settings, 'Gray Scale', :value => 'Gray Scale' %>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <%= f.radio_button :paper_size, 'Long Bond' %>
+                <%= f.label :paper_size, 'Long Bond', :value => 'Long Bond' %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
+        <div class = "field" >
+          <label> Color Settings </label>
+          <div class="inline fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <%= f.radio_button :color_settings, 'Colored', :checked => true %>
+                <%= f.label :color_settings, 'Colored', :value => 'Colored' %>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <%= f.radio_button :color_settings, 'Black and White' %>
+                <%= f.label :color_settings, 'Black and White', :value => 'Black and White' %>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <%= f.radio_button :color_settings, 'Gray Scale' %>
+                <%= f.label :color_settings, 'Gray Scale', :value => 'Gray Scale' %>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="field">
-        <label>Additional Specifications</label>
-        <%= f.text_area(:additional_specs, :rows => 4, :placeholder => "") %>
-      </div>
+        <div class="field">
+          <label>Additional Specifications</label>
+          <%= f.text_area(:additional_specs, :rows => 4, :placeholder => "") %>
+        </div>
 
-      </br>
+        </br>
 
-      <div class="field">
-        <%= f.file_field :file, value: "Upload File" %>
-        <!-- idk how to add these classes "ui inverted blue button active centered" -->
-      </div>
-      </br>
-      <div class="field">
-        <%= f.submit %>
-      </div>
-    <% end %>
+        <div class="field">
+          <%= f.file_field :file, value: "Upload File" %>
+          <!-- idk how to add these classes "ui inverted blue button active centered" -->
+        </div>
+        </br>
+        <div class="field">
+          <%= f.submit %>
+        </div>
+      <% end %>
     </div>
   </div>
-  </body>
+</body>
 
-  </html>
+</html>
