@@ -20,3 +20,7 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'web-console'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
