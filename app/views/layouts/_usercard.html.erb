@@ -1,7 +1,10 @@
 <% if student_signed_in? %>
   <div class="ui raised segment">
     <h2 class="ui header">
-    <%= link_to(current_student.name, edit_student_registration_path) %>
+    <%= current_student.name %>
+    <%= link_to edit_student_registration_path do %>
+      <i class="options icon"></i>
+    <% end %>
     <div class="sub header"><%= current_student.student_number %></div>
     </h2>
     <div class="ui divider"></div>
