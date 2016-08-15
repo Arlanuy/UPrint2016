@@ -2,10 +2,7 @@ class Students::RegistrationsController < Devise::RegistrationsController
     before_filter :configure_permitted_parameters
 
     def create
-        super
-        @student.errors.messages.each do |e|
-            p e
-        end
+      super
     end
 
     protected

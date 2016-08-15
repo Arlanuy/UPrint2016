@@ -35,3 +35,11 @@
     </div>
     <button class="ui button">Sign up</button>
 <% end %>
+<!-- 2 methods of displaying the error messages below.
+  Second method to be improved upon. -->
+<%= devise_error_messages! %>
+<div class="ui red floating message"><ul>
+<% @student.errors.full_messages.each do |e| %>
+  <li><%= e %></li>
+<% end %>
+</ul></div>
