@@ -1,11 +1,6 @@
 class Students::RegistrationsController < Devise::RegistrationsController
     before_filter :configure_permitted_parameters
 
-    # Creates the student record.
-    def create
-      super
-    end
-
     protected
 
     # Permits the student parameters for sign up.
