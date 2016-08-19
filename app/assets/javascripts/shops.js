@@ -1,5 +1,8 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+// 
+// This js file allows a shop to toggle its availability from a switch in the
+//   shop's home page.
 $("#avail-switch").click(function() {
   $.ajax({
     url: '/shops/available',
