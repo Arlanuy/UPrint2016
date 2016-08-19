@@ -3,6 +3,7 @@ class Shops::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  # Updates the shop details to the ones provided from the shop edit page.
   def update_resource(resource, params)
     if params[:password].blank? && params[:password_confirmation].blank?
       resource.update_without_password(params)
@@ -11,6 +12,7 @@ class Shops::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  # Permits parameters for shop sign up and account update.
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).push(:shop_name,
                                                   :location,

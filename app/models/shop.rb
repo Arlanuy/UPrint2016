@@ -1,3 +1,11 @@
+##
+# This class represents a Shop Devise model. A shop has multiple transactions,
+# which are dependent on the shop, and thus are destroyed upon destroying the
+# shop.
+#
+# A shop must have a unique name, a valid email, a location, and an integer
+# contact number.
+
 class Shop < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable

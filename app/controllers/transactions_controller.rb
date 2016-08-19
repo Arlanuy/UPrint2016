@@ -1,4 +1,7 @@
 class TransactionsController < ApplicationController
+
+  # Lists the transactions either made by the student signed in, or received by
+  # the shop signed in.
   def index
     if student_signed_in?
       @transactions = current_student.transactions.all.reverse_order
@@ -11,6 +14,8 @@ class TransactionsController < ApplicationController
     end
   end
 
+  # Creates transaction if the student is signed in. The transaction is created
+  # with user input and generated information like date sent.
   def create
     if student_signed_in?
       @shop = Shop.find(params[:id])
@@ -28,13 +33,13 @@ class TransactionsController < ApplicationController
         redirect_to transaction_path(@transaction.id)
       else
         flash[:alert] = "There was some error in input."
-        redirect_to shop_path(params[:id]) #idk yet but this needs to redirect to (or render) something
+        redirect_to shop_path(params[:id])
       end
     end
   end
 
+  # Shows the details of a transaction.
   def show
-    # For both?; when viewing the details of a transaction
     @transaction = Transaction.find(params[:id])
 
     respond_to do |format|
@@ -44,15 +49,17 @@ class TransactionsController < ApplicationController
     end
   end
 
+  # Defines the transaction edit route. Students shouldn't be able to access
+  # this, but if by chance they do, they are simply redirected to the home page.
   def edit
-    # For the shop; when changing the details of a transaction
     if student_signed_in?
       redirect_to root_path
     end
   end
 
+  # Updates the transaction, based on the shop's input in the transaction edit
+  # route.
   def update
-    # For the shop; when marking as paid
     if shop_signed_in?
       @transaction = current_shop.transactions.find(params[:id])
       @transaction.update(date_paid: Time.now)
@@ -60,15 +67,20 @@ class TransactionsController < ApplicationController
     end
   end
 
+  # Defines the transaction creation form. Shops shouldn't be able to access
+  # this, but if by chance they do, they are redirected to the home page.
   def new
-    # For the student; when the file is being uploaded
     if shop_signed_in?
       redirect_to root_path
     end
   end
 
+  # Destroys a transaction. Can be done by the shop and student to finish or
+  # cancel the transaction respectively.
+  #
+  # Sidenote: A student probably shouldn't be able to cancel a transaction once
+  # it has been printed or paid for.
   def destroy
-    # For both? When rejecting (shop) or cancelling (student) a transaction
     if shop_signed_in?
       @transaction = current_shop.transactions.find(params[:t_id])
     else
@@ -78,6 +90,7 @@ class TransactionsController < ApplicationController
     redirect_to root_path
   end
 
+  # Downloads the file in the transaction.
   def download
     @transaction = Transaction.find(params[:id])
     if @transaction.file_file_name
@@ -93,6 +106,7 @@ class TransactionsController < ApplicationController
     end
   end
 
+  # Marks the print date of the transaction if the shop is signed in.
   def printed
     if shop_signed_in?
       @transaction = current_shop.transactions.find(params[:id])
@@ -106,6 +120,7 @@ class TransactionsController < ApplicationController
     end
   end
 
+  # Marks the payment date of the transaction if the shop is signed in.
   def paid
     if shop_signed_in?
       @transaction = current_shop.transactions.find(params[:id])
@@ -115,18 +130,8 @@ class TransactionsController < ApplicationController
   end
 
   private
+  # Permits the transaction's parameters, such as page count, paper size, etc.
   def transaction_params
     params.require(:transaction).permit(:number_pages, :number_copies, :paper_size, :color_settings, :additional_specs, :file)
   end
-
-# To be discussed
-=begin
-  def destroy
-    @shop = Shop.find(params[:id])
-    @transaction = @shop.transaction.find(params[:id])
-    @transaction.destroy
-    redirect_to shop_path(@shop)
-  end
->>>>>>> 042ccb0a7cf0c9915f2f83a14c9e6e6883ca9a4c
-=end
 end

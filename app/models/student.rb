@@ -1,3 +1,11 @@
+##
+# This class represents a Student Devise model. A student has multiple 
+# transactions, which are dependent on the student, and thus are destroyed upon 
+# destroying the student.
+#
+# A student must have a unique name and student number, a valid and unique
+# email, and an integer contact number.
+
 class Student < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable

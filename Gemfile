@@ -19,6 +19,7 @@ group :development, :test do
   gem 'spring'
   gem 'mailcatcher'
   gem 'web-console'
+  gem 'rdoc'
 end
 
 group :production do

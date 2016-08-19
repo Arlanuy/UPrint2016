@@ -25,6 +25,9 @@ class StaticPagesController < ApplicationController
     nil
   end
 
+  # Defines the root route. If the student is signed in, it redirects to the
+  # shop index route. If the shop is signed in, it redirects to that shop's show
+  # route. Else, it just loads the landing page.
   def landing
     if student_signed_in?
       redirect_to shops_path

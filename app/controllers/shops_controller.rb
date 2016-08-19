@@ -6,6 +6,9 @@ class ShopsController < ApplicationController
     @devise_mapping ||= Devise.mappings[:shop]
   end
 
+  # Defines the shop index route, where the student views the list of shops.
+  # Also shows the student's last 5 transactions and the queue status of the
+  # shops.
   def index
     @shops = Shop.order(:shop_name)
     if student_signed_in?
@@ -16,6 +19,8 @@ class ShopsController < ApplicationController
     end
   end
 
+  # Defines the shop show route, where the details of the shop are shown to the
+  # student, and the shop's trnasactions are shown to the signed in shop.
   def show
     @transaction = Shop.find(params[:id]).transactions.build
     if shop_signed_in?
@@ -24,18 +29,22 @@ class ShopsController < ApplicationController
     @queue = Shop.find(params[:id]).transactions.where(:date_printed => nil).count
   end
 
+  # Lists all shops in alphabetical order, as well as the current shop's
+  # transactions.
   def available
     @all_shops = Shop.order(:shop_name)
     @transactions = current_shop.transactions
   end
   helper_method :available
 
+  # Toggles the shop's availability. The process is supposedly performed with
+  # AJAX if the shop is already currently signed in.
   def toggle_availability
     current_shop.update(is_available: !(current_shop.is_available))
-    puts "current shop is #{current_shop.is_available}"
     render :nothing => true
   end
 
+  # Lists the current shop's transactions, in order of the date sent.
   def shop_dashboard
     @transactions = current_shop.transactions.order(:date_sent)
     puts @transactions.count
@@ -43,13 +52,15 @@ class ShopsController < ApplicationController
   helper_method :shop_dashboard
   
   private
+    # Sets the shop object.
     def set_shop
       @shop = Shop.find(params[:id])
     end
 
+    # Defines the shop's parameters, such as name, location, etc.
     def shop_params
       params.require(:shop).permit(:shop_name,
-                                    :location,
+                                   :location,
                                     :email,
                                     :contact_number,
                                     :price_blwt,
