@@ -30,6 +30,21 @@ Install Rbenv:
 
 Complete the [installation instructions](https://github.com/sstephenson/rbenv) including the optional part: ```ruby-build```.
 
+#### Rbenv installation.
+For those who find it hard to install from that link, copy paste this command into your terminal. This manual assumes that you use a debian-based linux distro.
+
+`git clone https://github.com/rbenv/rbenv.git ~/.rbenv`
+
+This basically clones the repo descried by the link onto the folder .rbenv located in your home folder. The shortcut for the home folder is the `~`. 
+
+Then for the installation of ruby-build, make sure you first do this as this is the cause of most of the errors when installing.
+
+
+`sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev`
+
+Then paste this command  `git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build`
+
+
 Upon installing rbenv, install Ruby 2.2.0:
 
 ```
@@ -40,11 +55,13 @@ rbenv global 2.2.0
 Install Rails and Bundler:
 
 ```
-gem install rails
 gem install bundler  # restart terminal after the installation
 ```
 
+
 Clone the repository to your own directory, then go to ```api/``` directory. Run the following commands:
+
+
 
 ```
 bundle install
