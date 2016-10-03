@@ -12,6 +12,7 @@ class Shop < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :transactions, dependent: :destroy
+  has_one :transactions_count
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :shop_name, presence: true, uniqueness: true

@@ -16,6 +16,7 @@ class ShopsController < ApplicationController
     end
     @shops.each do |s|
       s.queue_status = s.transactions.where(:date_printed => nil).count
+      s.transactions_count = s.transactions.count
     end
   end
 
@@ -50,7 +51,7 @@ class ShopsController < ApplicationController
     puts @transactions.count
   end
   helper_method :shop_dashboard
-  
+
   private
     # Sets the shop object.
     def set_shop
