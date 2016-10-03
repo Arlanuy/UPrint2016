@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20160610145457) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "queue_status",           default: 0,  null: false
+    t.integer "transactions_count"       default: 0,  null: false
     t.boolean  "is_available"
     t.float    "price_blwt"
     t.float    "price_grey"

@@ -9,7 +9,9 @@ shops = [
 students = [
   { name: 'Juan Dela Cruz', student_number: '201500000', email: 'jdc@gmail.com', password: 'password', contact_number: '09161234567'},
   { name: 'Francis Delacruz', student_number: '201508080', email: 'fzqdlc69@gmail.com', password: 'password', contact_number: '09169696969'},
-  { name: 'Huwan Ofthe Cross', student_number: '201500000', email: 'example@gmail.com', password: 'password', contact_number: '09167654321'}
+  { name: 'Huwan Ofthe Cross', student_number: '201500000', email: 'example@gmail.com', password: 'password', contact_number: '09167654321'},
+  { name: 'Huwan Walang Cross', student_number: '201510000', email: 'wew@gmail.com', password: 'password', contact_number: '09167654322'},
+  { name: 'Huwan Naputol ang Cross', student_number: '201520000', email: 'wow@gmail.com', password: 'password', contact_number: '09167654323'}
 ]
 
 transactions = [
